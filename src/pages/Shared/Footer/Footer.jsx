@@ -8,7 +8,7 @@ const Footer = () => {
         <aside>
           <Logo></Logo>
 
-          <p className="font-bold hover:text-yellow-400 ">
+          <p className="font-bold lg:py-4 py-2 hover:text-yellow-400 ">
             ACME Industries Ltd.
             <br />
             Providing reliable tech since 1992
