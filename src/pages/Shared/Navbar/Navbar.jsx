@@ -52,7 +52,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <div className="lg:text-3xl flex items-center font-bold text-xl">
+          <div className="lg:text-3xl flex lg:ml-6 items-center font-bold text-xl">
             <Logo></Logo>
           </div>
         </div>
@@ -60,7 +60,8 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <button className="btn mr-2">Sign In</button>
+          <button className="btn lg:mr-6">Sign Up</button>
         </div>
       </div>
     </div>
