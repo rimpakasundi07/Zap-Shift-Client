@@ -60,8 +60,12 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <button className="btn mr-2">Sign In</button>
-          <button className="btn lg:mr-6">Sign Up</button>
+          <button className="lg:px-5 lg:py-3 p-2 rounded-lg hover:bg-[#caeb66]  hover:text-white  text-[#caeb66] border-2  border-[#caeb66] font-bold lg:font-extrabold mr-2">
+            Sign In
+          </button>
+          <button className="lg:px-5 lg:py-3 p-2 rounded-lg hover:border-2 bg-[#caeb66]  hover:border-[#caeb66]  hover:text-[#caeb66] hover:bg-white font-bold lg:font-extrabold text-white lg:mr-6">
+            Sign Up
+          </button>
         </div>
       </div>
     </div>
