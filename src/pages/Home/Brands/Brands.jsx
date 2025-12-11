@@ -13,7 +13,7 @@ const Brands = () => {
   return (
     <div>
       <section className="bg-gray-50 py-10">
-        <h3 className="text-center text-teal-800 font-semibold mb-6">
+        <h3 className="text-center text-teal-800 font-bold text-xl lg:text-3xl  mb-6">
           We've helped thousands of sales teams
         </h3>
 
