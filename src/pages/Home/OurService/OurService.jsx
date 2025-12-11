@@ -80,6 +80,66 @@ const OurService = () => {
               ensuring 4-6 hour delivery from pick-up to drop-off.”
             </p>
           </div>
+          <div className="bg-white hover:bg-yellow-300 rounded-2xl p-5 ">
+            <img src={icon2} className="mx-auto" alt="" />
+            <h2 className="font-bold py-2 lg:py-4 text-center text-teal-800 lg:text-3xl text-xl ">
+              Express & Standard Delivery
+            </h2>
+            <p className="text-gray-700 text-center">
+              “We deliver parcels within 24=-72 hours across major Indian cities
+              including Kolkata, Delhi, Mumbai, Chennai, Bengaluru, and
+              Hyderabad. Express delivery is available in selected metro areas,
+              ensuring 4-6 hour delivery from pick-up to drop-off.”
+            </p>
+          </div>
+          <div className="bg-white hover:bg-yellow-300 rounded-2xl p-5 ">
+            <img src={icon2} className="mx-auto" alt="" />
+            <h2 className="font-bold py-2 lg:py-4 text-center text-teal-800 lg:text-3xl text-xl ">
+              Express & Standard Delivery
+            </h2>
+            <p className="text-gray-700 text-center">
+              “We deliver parcels within 24=-72 hours across major Indian cities
+              including Kolkata, Delhi, Mumbai, Chennai, Bengaluru, and
+              Hyderabad. Express delivery is available in selected metro areas,
+              ensuring 4-6 hour delivery from pick-up to drop-off.”
+            </p>
+          </div>
+          <div className="bg-white hover:bg-yellow-300 rounded-2xl p-5 ">
+            <img src={icon2} className="mx-auto" alt="" />
+            <h2 className="font-bold py-2 lg:py-4 text-center text-teal-800 lg:text-3xl text-xl ">
+              Express & Standard Delivery
+            </h2>
+            <p className="text-gray-700 text-center">
+              “We deliver parcels within 24=-72 hours across major Indian cities
+              including Kolkata, Delhi, Mumbai, Chennai, Bengaluru, and
+              Hyderabad. Express delivery is available in selected metro areas,
+              ensuring 4-6 hour delivery from pick-up to drop-off.”
+            </p>
+          </div>
+          <div className="bg-white hover:bg-yellow-300 rounded-2xl p-5 ">
+            <img src={icon2} className="mx-auto" alt="" />
+            <h2 className="font-bold py-2 lg:py-4 text-center text-teal-800 lg:text-3xl text-xl ">
+              Express & Standard Delivery
+            </h2>
+            <p className="text-gray-700 text-center">
+              “We deliver parcels within 24=-72 hours across major Indian cities
+              including Kolkata, Delhi, Mumbai, Chennai, Bengaluru, and
+              Hyderabad. Express delivery is available in selected metro areas,
+              ensuring 4-6 hour delivery from pick-up to drop-off.”
+            </p>
+          </div>
+          <div className="bg-white hover:bg-yellow-300 rounded-2xl p-5 ">
+            <img src={icon2} className="mx-auto" alt="" />
+            <h2 className="font-bold py-2 lg:py-4 text-center text-teal-800 lg:text-3xl text-xl ">
+              Express & Standard Delivery
+            </h2>
+            <p className="text-gray-700 text-center">
+              “We deliver parcels within 24=-72 hours across major Indian cities
+              including Kolkata, Delhi, Mumbai, Chennai, Bengaluru, and
+              Hyderabad. Express delivery is available in selected metro areas,
+              ensuring 4-6 hour delivery from pick-up to drop-off.”
+            </p>
+          </div>
         </div>
       </div>
     </div>
