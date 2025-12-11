@@ -4,7 +4,8 @@ import icon from "../../../assets/bookingIcon.png";
 const OurService = () => {
   return (
     <div>
-      <div className="">
+      {/* How it Works */}
+      <div className="py-4 lg:py-12">
         <h2 className="lg:text-4xl text-xl text-teal-800 text-center font-bold">
           How it Works
         </h2>
@@ -50,6 +51,17 @@ const OurService = () => {
             </p>
           </div>
         </div>
+      </div>
+      {/* Our Services */}
+      <div className="bg-teal-800 rounded-2xl lg:m-14 lg:py-8 p-6 m-6">
+        <h2 className="text-white hover:text-yellow-400 font-bold text-xl lg:text-4xl text-center ">
+          Our Services
+        </h2>
+        <p className="text-white text-center py-3 lg:py-7 w-8/12 mx-auto">
+          Enjoy fast, reliable parcel delivery with real-time tracking and zero
+          hassle. From personal packages to business shipments — we deliver on
+          time, every time.
+        </p>
       </div>
     </div>
   );
