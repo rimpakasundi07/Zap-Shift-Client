@@ -216,6 +216,14 @@ const OurService = () => {
               with 100% safety of your product. Pathao courier delivers your
               parcels in every corner of Bangladesh right on time.
             </p>
+            <div className="flex items-center py-3 lg:py-5 ">
+              <button className="lg:px-5 lg:py-3 p-2 rounded-full hover:border-2 bg-[#caeb66]  hover:border-[#caeb66]  hover:text-[#caeb66] hover:bg-teal-800 font-bold lg:font-extrabold text-white lg:mr-6">
+                Become a Merchant
+              </button>
+              <button className="lg:px-5 lg:py-3 p-2 rounded-full hover:bg-[#caeb66]  hover:text-white  text-[#caeb66] border-2  border-[#caeb66] font-bold lg:font-extrabold mr-2">
+                Earn with ZapShift Courier
+              </button>
+            </div>
           </div>
           <div className=""></div>
         </div>
