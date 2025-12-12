@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 // Swiper-er proyojonio modules import korun
 import { Swiper, SwiperSlide } from "swiper/react";
+import layerImg from "../../assets/customer-top.png";
 import {
   Pagination,
   Navigation,
@@ -20,7 +21,7 @@ const testimonials = [
     id: 1,
     quote:
       "A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day.",
-    name: "Awlad Hossin",
+    name: "Rimpa Kasundi",
     title: "Senior Product Designer",
     avatar: "/path/to/awlad_avatar.png",
   },
@@ -28,7 +29,7 @@ const testimonials = [
     id: 2,
     quote:
       "Providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture.",
-    name: "Rasel Ahamed",
+    name: "Adurini Mitra",
     title: "CTO",
     avatar: "/path/to/rasel_avatar.png",
   },
@@ -36,7 +37,7 @@ const testimonials = [
     id: 3,
     quote:
       "A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day.",
-    name: "Nasir Uddin",
+    name: "Rimpa Kasundi",
     title: "CEO",
     avatar: "/path/to/nasir_avatar.png",
   },
@@ -44,7 +45,7 @@ const testimonials = [
     id: 4,
     quote:
       "A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day.",
-    name: "Nasir Uddin",
+    name: "Riju Kasundi",
     title: "CEO",
     avatar: "/path/to/nasir_avatar.png",
   },
@@ -52,7 +53,7 @@ const testimonials = [
     id: 5,
     quote:
       "A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day.",
-    name: "Nasir Uddin",
+    name: "Adurini Mitra",
     title: "CEO",
     avatar: "/path/to/nasir_avatar.png",
   },
@@ -60,7 +61,7 @@ const testimonials = [
     id: 6,
     quote:
       "A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day.",
-    name: "Nasir Uddin",
+    name: "Rimpa Kasundi",
     title: "CEO",
     avatar: "/path/to/nasir_avatar.png",
   },
@@ -68,7 +69,7 @@ const testimonials = [
     id: 7,
     quote:
       "A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day.",
-    name: "Nasir Uddin",
+    name: "Riju Kasundi",
     title: "CEO",
     avatar: "/path/to/nasir_avatar.png",
   },
@@ -76,7 +77,7 @@ const testimonials = [
     id: 8,
     quote:
       "A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day.",
-    name: "Nasir Uddin",
+    name: "Rimpa Kasundi",
     title: "CEO",
     avatar: "/path/to/nasir_avatar.png",
   },
@@ -84,7 +85,7 @@ const testimonials = [
     id: 9,
     quote:
       "A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day.",
-    name: "Nasir Uddin",
+    name: "Adurini Mitra",
     title: "CEO",
     avatar: "/path/to/nasir_avatar.png",
   },
@@ -92,7 +93,7 @@ const testimonials = [
     id: 10,
     quote:
       "A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day.",
-    name: "Nasir Uddin",
+    name: "Riju Kasundi",
     title: "CEO",
     avatar: "/path/to/nasir_avatar.png",
   },
@@ -100,7 +101,7 @@ const testimonials = [
     id: 11,
     quote:
       "A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day.",
-    name: "Nasir Uddin",
+    name: "Rimpa Kasundi",
     title: "CEO",
     avatar: "/path/to/nasir_avatar.png",
   },
@@ -108,7 +109,7 @@ const testimonials = [
     id: 12,
     quote:
       "A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day.",
-    name: "Nasir Uddin",
+    name: "Adurini Mitra",
     title: "CEO",
     avatar: "/path/to/nasir_avatar.png",
   },
@@ -173,8 +174,9 @@ const TestimonialCarousel = () => {
       <div className="w-full">
         {/* Header */}
         <div className="text-center mb-12">
+          <img src={layerImg} className="mx-auto" alt="" />
           <div className="mb-4">{/*  */}</div>
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          <h2 className="text-xl font-extrabold text-teal-800 lg:text-4xl">
             What our customers are saying
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-500">
