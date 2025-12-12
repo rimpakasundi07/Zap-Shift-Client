@@ -3,6 +3,8 @@ import icon from "../../../assets/bookingIcon.png";
 import icon2 from "../../../assets/service.png";
 import icon3 from "../../../assets/live-tracking.png";
 import icon4 from "../../../assets/safe-delivery.png";
+import icon5 from "../../../assets/location-merchant.png";
+import imageLayer from "../../../assets/be-a-merchant-bg.png";
 import Brands from "../Brands/Brands";
 
 const OurService = () => {
@@ -205,8 +207,14 @@ const OurService = () => {
         </div>
       </div>
       {/* Merchant and Customer Satisfaction is Our First Priority  */}
-      <div className="bg-teal-800 rounded-2xl lg:p-10 p-5  my-10 w-10/12 mx-auto">
+      <div className="bg-teal-800 rounded-2xl lg:p-10 p-5 relative mx-auto my-10 w-10/12 ">
+        <img
+          src={imageLayer}
+          className="lg:block hidden absolute top-0 left-[10%]"
+          alt=""
+        />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          {/* 1st layer */}
           <div className="">
             <h2 className="text-white text-xl lg:text-3xl lg:py-5 py-2 font-bold">
               Merchant and Customer Satisfaction is Our First Priority
@@ -217,7 +225,7 @@ const OurService = () => {
               parcels in every corner of Bangladesh right on time.
             </p>
             <div className="flex items-center py-3 lg:py-5 ">
-              <button className="lg:px-5 lg:py-3 p-2 rounded-full hover:border-2 bg-[#caeb66]  hover:border-[#caeb66]  hover:text-[#caeb66] hover:bg-teal-800 font-bold lg:font-extrabold text-white lg:mr-6">
+              <button className="lg:px-5 lg:py-3 p-2 rounded-full hover:border-2 bg-[#caeb66]  hover:border-[#caeb66]  hover:text-[#caeb66] hover:bg-teal-800 font-bold lg:font-extrabold text-black lg:mr-6">
                 Become a Merchant
               </button>
               <button className="lg:px-5 lg:py-3 p-2 rounded-full hover:bg-[#caeb66]  hover:text-white  text-[#caeb66] border-2  border-[#caeb66] font-bold lg:font-extrabold mr-2">
@@ -225,7 +233,10 @@ const OurService = () => {
               </button>
             </div>
           </div>
-          <div className=""></div>
+          {/* 2nd layer */}
+          <div className="">
+            <img src={icon5} className="mx-auto" alt="" />
+          </div>
         </div>
       </div>
     </div>
