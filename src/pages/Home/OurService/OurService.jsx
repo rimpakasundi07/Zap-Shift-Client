@@ -68,7 +68,7 @@ const OurService = () => {
         {/* card's parent are here */}
         <div className="w-11/12 mx-auto gap-5 grid grid-cols-1 lg:grid-cols-3 py-5 lg:py-12 md:grid-cols-2">
           {/* card are here */}
-          <div className="bg-white hover:bg-yellow-300 rounded-2xl p-5 ">
+          <div className="bg-white max-h-[1200px] mx-auto  hover:bg-yellow-300 rounded-2xl p-5 ">
             <img src={icon2} className="mx-auto" alt="" />
             <h2 className="font-bold py-2 lg:py-4 text-center text-teal-800 lg:text-3xl text-xl ">
               Express & Standard Delivery
@@ -80,64 +80,56 @@ const OurService = () => {
               ensuring 4-6 hour delivery from pick-up to drop-off.”
             </p>
           </div>
-          <div className="bg-white hover:bg-yellow-300 rounded-2xl p-5 ">
+          <div className="bg-white max-h-[1200px] mx-auto  hover:bg-yellow-300 rounded-2xl p-5 ">
             <img src={icon2} className="mx-auto" alt="" />
             <h2 className="font-bold py-2 lg:py-4 text-center text-teal-800 lg:text-3xl text-xl ">
-              Express & Standard Delivery
+              Nationwide Delivery
             </h2>
             <p className="text-gray-700 text-center">
-              “We deliver parcels within 24=-72 hours across major Indian cities
-              including Kolkata, Delhi, Mumbai, Chennai, Bengaluru, and
-              Hyderabad. Express delivery is available in selected metro areas,
-              ensuring 4-6 hour delivery from pick-up to drop-off.”
+              We deliver parcels nationwide with home delivery in every
+              district, ensuring your products reach customers within 48-72
+              hours.
             </p>
           </div>
-          <div className="bg-white hover:bg-yellow-300 rounded-2xl p-5 ">
+          <div className="bg-white max-h-[1200px] mx-auto  hover:bg-yellow-300 rounded-2xl  p-5 ">
             <img src={icon2} className="mx-auto" alt="" />
             <h2 className="font-bold py-2 lg:py-4 text-center text-teal-800 lg:text-3xl text-xl ">
-              Express & Standard Delivery
+              Fulfillment Solution
             </h2>
             <p className="text-gray-700 text-center">
-              “We deliver parcels within 24=-72 hours across major Indian cities
-              including Kolkata, Delhi, Mumbai, Chennai, Bengaluru, and
-              Hyderabad. Express delivery is available in selected metro areas,
-              ensuring 4-6 hour delivery from pick-up to drop-off.”
+              We also offer customized service with inventory management
+              support, online order processing, packaging, and after sales
+              support.
             </p>
           </div>
-          <div className="bg-white hover:bg-yellow-300 rounded-2xl p-5 ">
+          <div className="bg-white max-h-[1200px] mx-auto  hover:bg-yellow-300 rounded-2xl  p-5 ">
             <img src={icon2} className="mx-auto" alt="" />
             <h2 className="font-bold py-2 lg:py-4 text-center text-teal-800 lg:text-3xl text-xl ">
-              Express & Standard Delivery
+              Cash on Home Delivery
             </h2>
             <p className="text-gray-700 text-center">
-              “We deliver parcels within 24=-72 hours across major Indian cities
-              including Kolkata, Delhi, Mumbai, Chennai, Bengaluru, and
-              Hyderabad. Express delivery is available in selected metro areas,
-              ensuring 4-6 hour delivery from pick-up to drop-off.”
+              100% cash on delivery anywhere in India with guaranteed safety of
+              your product.
             </p>
           </div>
-          <div className="bg-white hover:bg-yellow-300 rounded-2xl p-5 ">
+          <div className="bg-white max-h-[1200px] mx-auto  hover:bg-yellow-300 rounded-2xl  p-5 ">
             <img src={icon2} className="mx-auto" alt="" />
             <h2 className="font-bold py-2 lg:py-4 text-center text-teal-800 lg:text-3xl text-xl ">
-              Express & Standard Delivery
+              Corporate Service / Contract In Logistics
             </h2>
             <p className="text-gray-700 text-center">
-              “We deliver parcels within 24=-72 hours across major Indian cities
-              including Kolkata, Delhi, Mumbai, Chennai, Bengaluru, and
-              Hyderabad. Express delivery is available in selected metro areas,
-              ensuring 4-6 hour delivery from pick-up to drop-off.”
+              Customized corporate services which includes warehouse and
+              inventory management support.
             </p>
           </div>
-          <div className="bg-white hover:bg-yellow-300 rounded-2xl p-5 ">
+          <div className="bg-white max-h-[1200px] mx-auto   hover:bg-yellow-300 rounded-2xl p-5 ">
             <img src={icon2} className="mx-auto" alt="" />
-            <h2 className="font-bold py-2 lg:py-4 text-center text-teal-800 lg:text-3xl text-xl ">
-              Express & Standard Delivery
+            <h2 className="font-bold py-2 lg:py-4 text-center text-teal-800 lg:text-3xl text-xl">
+              Parcel Return
             </h2>
             <p className="text-gray-700 text-center">
-              “We deliver parcels within 24=-72 hours across major Indian cities
-              including Kolkata, Delhi, Mumbai, Chennai, Bengaluru, and
-              Hyderabad. Express delivery is available in selected metro areas,
-              ensuring 4-6 hour delivery from pick-up to drop-off.”
+              Through our reverse logistics facility we allow end customers to
+              return or exchange their products with online business merchants.
             </p>
           </div>
         </div>
