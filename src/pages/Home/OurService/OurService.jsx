@@ -163,6 +163,37 @@ const OurService = () => {
                 </p>
               </div>
             </div>
+            <div className="bg-white gap-3 lg:gap-8 py-3 lg:py-5 flex  rounded-2xl shadow-2xl">
+              <img src={icon3} className="p-2 lg:p-4" alt="" />
+
+              <div className="py-3 lg:py-5">
+                <p className="font-bold text-teal-800 lg:text-3xl text-xl">
+                  Live Parcel Tracking
+                </p>
+                <p className="py-2 lg:py-3">
+                  Stay updated in real-time with our live parcel tracking
+                  feature. From pick-up to delivery, monitor your shipment's
+                  journey and get instant status updates for complete peace of
+                  mind.
+                </p>
+              </div>
+            </div>
+            <div className="bg-white gap-3 lg:gap-8 py-3 lg:py-5 flex  rounded-2xl shadow-2xl">
+              <img src={icon3} className="p-2 lg:p-4" alt="" />
+              {/* <p className="border-t-2 border-dashed border-gray-300"></p> */}
+
+              <div className="py-3 lg:py-5">
+                <p className="font-bold text-teal-800 lg:text-3xl text-xl">
+                  Live Parcel Tracking
+                </p>
+                <p className="py-2 lg:py-3">
+                  Stay updated in real-time with our live parcel tracking
+                  feature. From pick-up to delivery, monitor your shipment's
+                  journey and get instant status updates for complete peace of
+                  mind.
+                </p>
+              </div>
+            </div>
 
             <div className="space-y-6"></div>
 
