@@ -2,6 +2,7 @@ import React from "react";
 import icon from "../../../assets/bookingIcon.png";
 import icon2 from "../../../assets/service.png";
 import icon3 from "../../../assets/live-tracking.png";
+import icon4 from "../../../assets/safe-delivery.png";
 
 const OurService = () => {
   return (
@@ -147,6 +148,21 @@ const OurService = () => {
             {/* dotted separators top */}
             <div className="w-full border-t-2 border-dashed border-gray-300 pb-4 mb-8"></div>
             {/* cards */}
+
+            <div className="bg-white gap-3 lg:gap-8 py-3 lg:py-5 flex  rounded-2xl shadow-2xl">
+              <img src={icon4} className="p-2 lg:p-4" alt="" />
+
+              <div className="py-3 lg:py-5">
+                <p className="font-bold text-teal-800 lg:text-3xl text-xl">
+                  100% Safe Delivery
+                </p>
+                <p className="py-2 lg:py-3">
+                  We ensure your parcels are handled with the utmost care and
+                  delivered securely to their destination. Our reliable process
+                  guarantees safe and damage-free delivery every time.
+                </p>
+              </div>
+            </div>
             <div className="bg-white gap-3 lg:gap-8 py-3 lg:py-5 flex  rounded-2xl shadow-2xl">
               <img src={icon3} className="p-2 lg:p-4" alt="" />
               {/* <p className="border-t-2 border-dashed border-gray-300"></p> */}
@@ -164,33 +180,17 @@ const OurService = () => {
               </div>
             </div>
             <div className="bg-white gap-3 lg:gap-8 py-3 lg:py-5 flex  rounded-2xl shadow-2xl">
-              <img src={icon3} className="p-2 lg:p-4" alt="" />
-
-              <div className="py-3 lg:py-5">
-                <p className="font-bold text-teal-800 lg:text-3xl text-xl">
-                  Live Parcel Tracking
-                </p>
-                <p className="py-2 lg:py-3">
-                  Stay updated in real-time with our live parcel tracking
-                  feature. From pick-up to delivery, monitor your shipment's
-                  journey and get instant status updates for complete peace of
-                  mind.
-                </p>
-              </div>
-            </div>
-            <div className="bg-white gap-3 lg:gap-8 py-3 lg:py-5 flex  rounded-2xl shadow-2xl">
-              <img src={icon3} className="p-2 lg:p-4" alt="" />
+              <img src={icon4} className="p-2 lg:p-4" alt="" />
               {/* <p className="border-t-2 border-dashed border-gray-300"></p> */}
 
               <div className="py-3 lg:py-5">
                 <p className="font-bold text-teal-800 lg:text-3xl text-xl">
-                  Live Parcel Tracking
+                  24/7 Call Center Support
                 </p>
                 <p className="py-2 lg:py-3">
-                  Stay updated in real-time with our live parcel tracking
-                  feature. From pick-up to delivery, monitor your shipment's
-                  journey and get instant status updates for complete peace of
-                  mind.
+                  Our dedicated support team is available around the clock to
+                  assist you with any questions, updates, or delivery
+                  concerns—anytime you need us.
                 </p>
               </div>
             </div>
