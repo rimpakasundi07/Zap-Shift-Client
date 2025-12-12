@@ -14,3 +14,41 @@
 body {
   font-family: "Urbanist", sans-serif;
 }
+
+/* Global CSS File e add korun */
+
+/* Active Slide er jonno style */
+/* swiper-slide-active class-ta Swiper auto-add kore */
+.swiper-slide-active .transition-all {
+  /* Design-er moto active card style */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* ektu beshi shadow */
+  transform: scale(1.05); /* ektu boro kora holo */
+  border-color: #4caf50; /* Green color, jemon apnar design e achhe */
+}
+
+/* Quote er color change */
+.swiper-slide-active blockquote {
+  color: #4caf50; /* Active quote color green */
+}
+
+/* Center-er card-er pichone background shade dewar jonno */
+.swiper-slide-active .bg-white {
+  background-color: #ffffff;
+}
+
+/* Custom Pagination Active Bullet style override */
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+  background-color: #38a169 !important; /* Green color */
+  width: 24px !important; /* Active hole lamba hobe */
+}
+
+/* Custom Navigation Arrows style */
+.swiper-button-prev,
+.swiper-button-next {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  margin-top: 0 !important;
+}
