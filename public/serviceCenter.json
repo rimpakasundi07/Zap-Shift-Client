@@ -1,0 +1,157 @@
+[
+  {
+    "region": "North",
+    "district": "Delhi",
+    "city": "New Delhi",
+    "covered_area": ["Connaught Place", "Karol Bagh", "Dwarka", "Rohini"],
+    "status": "active",
+    "flowchart": "https://example.com/delhi-flowchart.png",
+    "longitude": 77.2167,
+    "latitude": 28.6139
+  },
+  {
+    "region": "North",
+    "district": "Uttar Pradesh",
+    "city": "Lucknow",
+    "covered_area": ["Alambagh", "Gomti Nagar", "Hazratganj", "Indira Nagar"],
+    "status": "active",
+    "flowchart": "https://example.com/lucknow-flowchart.png",
+    "longitude": 80.9462,
+    "latitude": 26.8467
+  },
+  {
+    "region": "West",
+    "district": "Maharashtra",
+    "city": "Mumbai",
+    "covered_area": ["Andheri", "Bandra", "Borivali", "Dadar"],
+    "status": "active",
+    "flowchart": "https://example.com/mumbai-flowchart.png",
+    "longitude": 72.8777,
+    "latitude": 19.076
+  },
+  {
+    "region": "West",
+    "district": "Gujarat",
+    "city": "Ahmedabad",
+    "covered_area": ["Navrangpura", "Maninagar", "Bopal", "Satellite"],
+    "status": "active",
+    "flowchart": "https://example.com/ahmedabad-flowchart.png",
+    "longitude": 72.5714,
+    "latitude": 23.0225
+  },
+  {
+    "region": "South",
+    "district": "Karnataka",
+    "city": "Bengaluru",
+    "covered_area": [
+      "Whitefield",
+      "Yelahanka",
+      "Electronic City",
+      "Indiranagar"
+    ],
+    "status": "active",
+    "flowchart": "https://example.com/bengaluru-flowchart.png",
+    "longitude": 77.5946,
+    "latitude": 12.9716
+  },
+  {
+    "region": "South",
+    "district": "Tamil Nadu",
+    "city": "Chennai",
+    "covered_area": ["T Nagar", "Velachery", "Anna Nagar", "Tambaram"],
+    "status": "active",
+    "flowchart": "https://example.com/chennai-flowchart.png",
+    "longitude": 80.2707,
+    "latitude": 13.0827
+  },
+  {
+    "region": "South",
+    "district": "Telangana",
+    "city": "Hyderabad",
+    "covered_area": ["Gachibowli", "Madhapur", "Secunderabad", "Kukatpally"],
+    "status": "active",
+    "flowchart": "https://example.com/hyderabad-flowchart.png",
+    "longitude": 78.4867,
+    "latitude": 17.385
+  },
+  {
+    "region": "East",
+    "district": "West Bengal",
+    "city": "Kolkata",
+    "covered_area": ["Salt Lake", "Howrah", "Behala", "Dum Dum"],
+    "status": "active",
+    "flowchart": "https://example.com/kolkata-flowchart.png",
+    "longitude": 88.3639,
+    "latitude": 22.5726
+  },
+  {
+    "region": "East",
+    "district": "Odisha",
+    "city": "Bhubaneswar",
+    "covered_area": ["Patia", "Khandagiri", "Chandrasekharpur"],
+    "status": "active",
+    "flowchart": "https://example.com/bhubaneswar-flowchart.png",
+    "longitude": 85.8245,
+    "latitude": 20.2961
+  },
+  {
+    "region": "North",
+    "district": "Punjab",
+    "city": "Chandigarh",
+    "covered_area": ["Sector 17", "Sector 22", "Sector 35", "Mohali"],
+    "status": "active",
+    "flowchart": "https://example.com/chandigarh-flowchart.png",
+    "longitude": 76.7794,
+    "latitude": 30.7333
+  },
+  {
+    "region": "Central",
+    "district": "Madhya Pradesh",
+    "city": "Bhopal",
+    "covered_area": ["MP Nagar", "Arera Colony", "Kolar", "TT Nagar"],
+    "status": "active",
+    "flowchart": "https://example.com/bhopal-flowchart.png",
+    "longitude": 77.4126,
+    "latitude": 23.2599
+  },
+  {
+    "region": "Central",
+    "district": "Madhya Pradesh",
+    "city": "Indore",
+    "covered_area": ["Vijay Nagar", "Palasia", "Rajwada", "Rau"],
+    "status": "active",
+    "flowchart": "https://example.com/indore-flowchart.png",
+    "longitude": 75.8577,
+    "latitude": 22.7196
+  },
+  {
+    "region": "West",
+    "district": "Rajasthan",
+    "city": "Jaipur",
+    "covered_area": ["Malviya Nagar", "Vaishali Nagar", "Mansarovar"],
+    "status": "active",
+    "flowchart": "https://example.com/jaipur-flowchart.png",
+    "longitude": 75.7873,
+    "latitude": 26.9124
+  },
+  {
+    "region": "South",
+    "district": "Kerala",
+    "city": "Kochi",
+    "covered_area": ["Edappally", "Kakkanad", "Aluva", "Fort Kochi"],
+    "status": "active",
+    "flowchart": "https://example.com/kochi-flowchart.png",
+    "longitude": 76.2673,
+    "latitude": 9.9312
+  },
+  {
+    "region": "North-East",
+    "district": "Assam",
+    "city": "Guwahati",
+    "covered_area": ["Dispur", "Paltan Bazar", "Beltola", "Pan Bazaar"],
+    "status": "active",
+    "flowchart": "https://example.com/guwahati-flowchart.png",
+    "longitude": 91.7362,
+    "latitude": 26.1445
+  }
+]
