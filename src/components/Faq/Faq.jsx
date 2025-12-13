@@ -17,17 +17,20 @@ const Faq = () => {
         <div className="collapse collapse-plus bg-base-100 border border-base-300">
           <input type="radio" name="my-accordion-3" defaultChecked />
           <div className="collapse-title font-semibold">
-            How do I create an account?
+            How does this posture corrector work?
           </div>
           <div className="collapse-content text-sm">
-            Click the "Sign Up" button in the top right corner and follow the
-            registration process.
+            A posture corrector works by providing support and gentle alignment
+            to your shoulders, back, and spine, encouraging you to maintain
+            proper posture throughout the day. Here's how it typically
+            functions: A posture corrector works by providing support and gentle
+            alignment to your shoulders.
           </div>
         </div>
         <div className="collapse collapse-plus bg-base-100 border border-base-300">
           <input type="radio" name="my-accordion-3" />
-          <div className="collapse-title font-semibold">
-            I forgot my password. What should I do?
+          <div className="collapse-title my-2 font-semibold">
+            Is it suitable for all ages and body types?
           </div>
           <div className="collapse-content text-sm">
             Click on "Forgot Password" on the login page and follow the
