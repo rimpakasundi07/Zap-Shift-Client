@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useLoaderData } from "react-router";
@@ -6,15 +6,31 @@ import { useLoaderData } from "react-router";
 const Coverage = () => {
   const position = [20.5937, 78.9629];
   const serviceCenter = useLoaderData();
-  console.log(serviceCenter);
+  const mapRef = useRef(null);
+  //  console.log(serviceCenter);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const location = e.target.location.value;
+    const district = serviceCenter.find((c) =>
+      c.district.toLowerCase().includes(location.toLowerCase())
+    );
+    if (district) {
+      const coord = [district.latitude, district.longitude];
+      console.log(district, coord);
+      // go to the location
+      mapRef.current.flyTo(coord, 15);
+    }
+  };
+
   return (
     <div className="w-11/12 mx-auto">
-      <h2 className="text-xl font-bold text-teal-900 py-3 lg:py-10 text-left  lg:text-5xl">
+      <h2 className="text-xl font-bold text-teal-900 py-3 lg:py-10 text-left lg:text-5xl">
         We are available in 15 districts
       </h2>
       <div className=" py-3 lg:py-8">
         {/* search */}
-        <form>
+        <form onSubmit={handleSearch}>
           <label className="input">
             <svg
               className="h-[1em] opacity-50"
@@ -32,7 +48,12 @@ const Coverage = () => {
                 <path d="m21 21-4.3-4.3"></path>
               </g>
             </svg>
-            <input type="search" required placeholder="Search" />
+            <input
+              type="search"
+              name="location"
+              required
+              placeholder="Search"
+            />
           </label>
         </form>
       </div>
@@ -43,6 +64,7 @@ const Coverage = () => {
           zoom={8}
           scrollWheelZoom={false}
           className="h-[700px]"
+          ref={mapRef}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
