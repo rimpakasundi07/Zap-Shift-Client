@@ -28,7 +28,9 @@ const Register = () => {
         <div className="card bg-base-100 w-full max-w-sm shrink-0">
           <div className="card-body">
             <fieldset className="fieldset">
-              <label className="label">Email</label>
+              <label className="label font-bold text-xl lg:text-3xl ">
+                Email
+              </label>
               <input
                 type="email"
                 {...register("email", { required: true })}
@@ -39,7 +41,9 @@ const Register = () => {
                 <p className="text-red-600 font-semibold">Email is required.</p>
               )}
               {/* password */}
-              <label className="label">Password</label>
+              <label className="label font-bold text-xl lg:text-3xl">
+                Password
+              </label>
               <input
                 type="password"
                 {...register("password", {
@@ -71,7 +75,9 @@ const Register = () => {
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button className="btn  mt-4">Register</button>
+              <button className="btn hover:bg-blue-700 bg-teal-800 text-white mt-4">
+                Register
+              </button>
             </fieldset>
           </div>
         </div>

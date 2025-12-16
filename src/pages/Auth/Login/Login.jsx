@@ -2,27 +2,46 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const { register } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleLogin = (data) => {
+    console.log("form data", data);
+  };
 
   return (
     <div className="w-11/12 mx-auto py-3 lg:py-6">
-      <h2 className="font-bold text-teal-800 text-xl md:text-3xl lg:text-6xl ">
-        Welcome Back
-      </h2>
-      <p className="text-black py-2 font-semibold">Login with ZapShift</p>
+      <div className="lg:pl-4">
+        <h2 className="font-bold text-teal-800 text-xl md:text-3xl lg:text-5xl ">
+          Welcome Back
+        </h2>
+        <p className="text-black py-2 lg:pl-2.5 font-semibold">
+          Login with ZapShift
+        </p>
+      </div>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 ">
-        <form className="card-body">
+        <form onSubmit={handleSubmit(handleLogin)} className="card-body">
           <fieldset className="fieldset">
             {/* email */}
-            <label className="label">Email</label>
+            <label className="label font-bold text-xl lg:text-3xl">Email</label>
             <input
               type="email"
-              {...register("email")}
+              {...register("email", { required: true })}
               className="input"
               placeholder="Email"
             />
+
+            {errors.email?.type === "required" && (
+              <p className="text-red-600 font-semibold">Email is required</p>
+            )}
+
             {/* password */}
-            <label className="label">Password</label>
+            <label className="label font-bold text-xl lg:text-3xl">
+              Password
+            </label>
             <input
               type="password"
               {...register("password")}
@@ -32,7 +51,9 @@ const Login = () => {
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
-            <button className="btn btn-neutral mt-4">Login</button>
+            <button className="btn hover:bg-blue-700  bg-teal-800 text-white mt-4">
+              Login
+            </button>
           </fieldset>
         </form>
       </div>
