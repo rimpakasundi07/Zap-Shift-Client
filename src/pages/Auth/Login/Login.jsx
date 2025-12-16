@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
+import { Link } from "react-router";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const {
@@ -25,7 +27,7 @@ const Login = () => {
   return (
     <div className="w-11/12 mx-auto py-3 lg:py-6">
       <div className="lg:pl-4">
-        <h2 className="font-bold text-teal-800 text-xl md:text-3xl lg:text-5xl ">
+        <h2 className="font-bold hover:text-yellow-300 text-teal-800 text-xl md:text-3xl lg:text-5xl ">
           Welcome Back
         </h2>
         <p className="text-black py-2 lg:pl-2.5 font-semibold">
@@ -72,7 +74,17 @@ const Login = () => {
               Login
             </button>
           </fieldset>
+          <p>
+            New to Zap Shift{" "}
+            <Link
+              className="text-sky-400 underline font-bold hover:text-blue-800"
+              to="/register"
+            >
+              Register
+            </Link>{" "}
+          </p>
         </form>
+        <SocialLogin></SocialLogin>
       </div>
     </div>
   );

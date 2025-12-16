@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
+import { Link } from "react-router";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
   const {
@@ -23,65 +25,87 @@ const Register = () => {
   };
 
   return (
-    <div className="">
-      <form onSubmit={handleSubmit(handleRegistration)}>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0">
-          <div className="card-body">
-            <fieldset className="fieldset">
-              <label className="label font-bold text-xl lg:text-3xl ">
-                Email
-              </label>
-              <input
-                type="email"
-                {...register("email", { required: true })}
-                className="input"
-                placeholder="Email"
-              />
-              {errors.email?.type === "required" && (
-                <p className="text-red-600 font-semibold">Email is required.</p>
-              )}
-              {/* password */}
-              <label className="label font-bold text-xl lg:text-3xl">
-                Password
-              </label>
-              <input
-                type="password"
-                {...register("password", {
-                  required: true,
-                  minLength: 6,
-                  pattern:
-                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
-                })}
-                className="input"
-                placeholder="Password"
-              />
-              {errors.password?.type === "required" && (
-                <p className="text-red-600 font-semibold">
-                  Password is required.
-                </p>
-              )}
-              {errors.password?.type === "minLength" && (
-                <p className="text-red-600 font-semibold">
-                  Password must be 6 character or longer.
-                </p>
-              )}
-              {errors.password?.type === "pattern" && (
-                <p className="text-red-600">
-                  Password must have at least one uppercase , at least one
-                  lowercase , at least one number, and at least one speical
-                  character
-                </p>
-              )}
-              <div>
-                <a className="link link-hover">Forgot password?</a>
-              </div>
-              <button className="btn hover:bg-blue-700 bg-teal-800 text-white mt-4">
-                Register
-              </button>
-            </fieldset>
+    <div className="lg:py-10">
+      <div className="lg:pl-4">
+        <h2 className="font-bold  hover:text-yellow-300 text-teal-800 text-xl md:text-3xl lg:text-5xl ">
+          Create an Account
+        </h2>
+        <p className="text-black py-2 lg:pl-2.5 font-semibold">
+          Welcome & register with ZapShift
+        </p>
+      </div>
+      <div className="card bg-base-100 w-full max-w-sm shrink-0 ">
+        <form onSubmit={handleSubmit(handleRegistration)}>
+          <div className="card bg-base-100 w-full max-w-sm shrink-0">
+            <div className="card-body">
+              <fieldset className="fieldset">
+                <label className="label font-bold text-xl lg:text-3xl ">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  {...register("email", { required: true })}
+                  className="input"
+                  placeholder="Your email"
+                />
+                {errors.email?.type === "required" && (
+                  <p className="text-red-600 font-semibold">
+                    Email is required.
+                  </p>
+                )}
+                {/* password */}
+                <label className="label font-bold text-xl lg:text-3xl">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    pattern:
+                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+                  })}
+                  className="input"
+                  placeholder="Password"
+                />
+                {errors.password?.type === "required" && (
+                  <p className="text-red-600 font-semibold">
+                    Password is required.
+                  </p>
+                )}
+                {errors.password?.type === "minLength" && (
+                  <p className="text-red-600 font-semibold">
+                    Password must be 6 character or longer.
+                  </p>
+                )}
+                {errors.password?.type === "pattern" && (
+                  <p className="text-red-600">
+                    Password must have at least one uppercase , at least one
+                    lowercase , at least one number, and at least one speical
+                    character
+                  </p>
+                )}
+                <div>
+                  <a className="link link-hover">Forgot password?</a>
+                </div>
+                <button className="btn hover:bg-blue-700 bg-teal-800 text-white mt-4">
+                  Register
+                </button>
+              </fieldset>
+              <p>
+                Already have an account?
+                <Link
+                  className="text-sky-400 underline font-bold hover:text-blue-800"
+                  to="/login"
+                >
+                  Login
+                </Link>{" "}
+              </p>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+        <SocialLogin></SocialLogin>
+      </div>
     </div>
   );
 };
