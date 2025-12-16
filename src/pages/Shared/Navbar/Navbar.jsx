@@ -1,9 +1,12 @@
 import React from "react";
 
 import Logo from "../../../components/Logo/Logo";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
+import useAuth from "../../../hooks/useAuth";
 
 const Navbar = () => {
+  const { user } = useAuth();
+
   const links = (
     <>
       <li>
@@ -60,12 +63,18 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <button className="lg:px-5 lg:py-3 p-2 rounded-lg hover:bg-[#caeb66]  hover:text-white  text-[#caeb66] border-2  border-[#caeb66] font-bold lg:font-extrabold mr-2">
-            Sign In
-          </button>
-          <button className="lg:px-5 lg:py-3 p-2 rounded-lg hover:border-2 bg-[#caeb66]  hover:border-[#caeb66]  hover:text-[#caeb66] hover:bg-white font-bold lg:font-extrabold text-white lg:mr-6">
-            Sign Up
-          </button>
+          {user ? (
+            <Link className="lg:px-5 lg:py-3 p-2 rounded-lg hover:bg-[#caeb66]  hover:text-white  text-[#caeb66] border-2  border-[#caeb66] font-bold lg:font-extrabold mr-2">
+              Logout
+            </Link>
+          ) : (
+            <Link
+              className="lg:px-5 lg:py-3 p-2 rounded-lg hover:border-2 bg-[#caeb66]  hover:border-[#caeb66]  hover:text-[#caeb66] hover:bg-white font-bold lg:font-extrabold text-white lg:mr-6"
+              to="/login"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>
