@@ -5,7 +5,15 @@ import { Link, NavLink } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const links = (
     <>
@@ -64,9 +72,12 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <Link className="lg:px-5 lg:py-3 p-2 rounded-lg hover:bg-[#caeb66]  hover:text-white  text-[#caeb66] border-2  border-[#caeb66] font-bold lg:font-extrabold mr-2">
+            <button
+              onClick={handleLogOut}
+              className="lg:px-5 lg:py-3 p-2 rounded-lg hover:bg-[#caeb66]  hover:text-white  text-[#caeb66] border-2  border-[#caeb66] font-bold lg:font-extrabold mr-2"
+            >
               Logout
-            </Link>
+            </button>
           ) : (
             <Link
               className="lg:px-5 lg:py-3 p-2 rounded-lg hover:border-2 bg-[#caeb66]  hover:border-[#caeb66]  hover:text-[#caeb66] hover:bg-white font-bold lg:font-extrabold text-white lg:mr-6"
