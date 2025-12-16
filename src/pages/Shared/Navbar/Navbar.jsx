@@ -86,6 +86,12 @@ const Navbar = () => {
               Login
             </Link>
           )}
+          <Link
+            to="/beARider"
+            className="lg:px-5 lg:py-3 p-2 rounded-lg hover:border-2 bg-[#caeb66]  hover:border-[#caeb66]  hover:text-[#caeb66] hover:bg-white font-bold lg:font-extrabold text-black lg:mr-6"
+          >
+            Be a rider
+          </Link>
         </div>
       </div>
     </div>
