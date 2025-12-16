@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
   const {
@@ -8,8 +9,17 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const { signInUser } = useAuth();
+
   const handleLogin = (data) => {
     console.log("form data", data);
+    signInUser(data.email, data.password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -44,10 +54,17 @@ const Login = () => {
             </label>
             <input
               type="password"
-              {...register("password")}
+              {...register("password", { required: true, minLength: 6 })}
               className="input"
               placeholder="Password"
             />
+
+            {errors.password?.type === "minlength" && (
+              <p className="text-red-700 font-semibold">
+                Password must be 6 character or longer
+              </p>
+            )}
+
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
