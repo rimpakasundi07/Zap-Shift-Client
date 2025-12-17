@@ -39,6 +39,22 @@ const Register = () => {
           <div className="card bg-base-100 w-full max-w-sm shrink-0">
             <div className="card-body">
               <fieldset className="fieldset">
+                {/* name  */}
+                <label className="label font-bold text-xl lg:text-3xl ">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  {...register("name", { required: true })}
+                  className="input"
+                  placeholder="Enter your name"
+                />
+                {errors.name?.type === "required" && (
+                  <p className="text-red-600 font-semibold">
+                    Name is required.
+                  </p>
+                )}
+                {/* email  */}
                 <label className="label font-bold text-xl lg:text-3xl ">
                   Email
                 </label>
