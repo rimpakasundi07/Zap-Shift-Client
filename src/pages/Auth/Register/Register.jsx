@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import axios from "axios";
 
 const Register = () => {
   const {
@@ -14,10 +15,23 @@ const Register = () => {
   const { registerUser } = useAuth();
 
   const handleRegistration = (data) => {
-    console.log("after register", data);
+    console.log("after register", data.photo[0]);
+    const profileImg = data.photo[0];
+
     registerUser(data.email, data.password)
       .then((result) => {
         console.log(result.user);
+        // store the image and get the photo url
+        const formData = new FormData();
+        formData.append("image", profileImg);
+        const image_API_URL = `https://api.imgbb.com/1/upload?expiration=600&key=${
+          import.meta.env.VITE_image_host_key
+        }`;
+        axios.post(image_API_URL, formData).then((res) => {
+          console.log("after image upload", res.data.data.url);
+
+          // update user profile
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -39,8 +53,8 @@ const Register = () => {
           <div className="card bg-base-100 w-full max-w-sm shrink-0">
             <div className="card-body">
               <fieldset className="fieldset">
-                {/* name  */}
-                <label className="label font-bold text-xl ">Name</label>
+                {/* name */}
+                <label className="label font-bold text-xl">Name</label>
                 <input
                   type="text"
                   {...register("name", { required: true })}
