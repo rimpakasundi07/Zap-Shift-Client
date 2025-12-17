@@ -40,9 +40,7 @@ const Register = () => {
             <div className="card-body">
               <fieldset className="fieldset">
                 {/* name  */}
-                <label className="label font-bold text-xl lg:text-3xl ">
-                  Name
-                </label>
+                <label className="label font-bold text-xl ">Name</label>
                 <input
                   type="text"
                   {...register("name", { required: true })}
@@ -54,10 +52,22 @@ const Register = () => {
                     Name is required.
                   </p>
                 )}
+                {/* image  */}
+                <label className="label font-bold text-xl  ">Image</label>
+
+                <input
+                  type="file"
+                  {...register("photo", { required: true })}
+                  className="file-input"
+                  placeholder="Select a photo or URL"
+                />
+                {errors.name?.type === "required" && (
+                  <p className="text-red-600 font-semibold">
+                    Photo is required.
+                  </p>
+                )}
                 {/* email  */}
-                <label className="label font-bold text-xl lg:text-3xl ">
-                  Email
-                </label>
+                <label className="label font-bold text-xl ">Email</label>
                 <input
                   type="email"
                   {...register("email", { required: true })}
@@ -70,9 +80,7 @@ const Register = () => {
                   </p>
                 )}
                 {/* password */}
-                <label className="label font-bold text-xl lg:text-3xl">
-                  Password
-                </label>
+                <label className="label font-bold text-xl">Password</label>
                 <input
                   type="password"
                   {...register("password", {
