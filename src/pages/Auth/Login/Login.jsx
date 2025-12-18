@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
@@ -12,12 +12,16 @@ const Login = () => {
   } = useForm();
 
   const { signInUser } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+  // console.log("in the login page", location);
 
   const handleLogin = (data) => {
     console.log("form data", data);
     signInUser(data.email, data.password)
       .then((result) => {
         console.log(result.user);
+        navigate(location?.state || "/");
       })
       .catch((error) => {
         console.log(error);
@@ -38,7 +42,7 @@ const Login = () => {
         <form onSubmit={handleSubmit(handleLogin)} className="card-body">
           <fieldset className="fieldset">
             {/* email */}
-            <label className="label font-bold text-xl lg:text-3xl">Email</label>
+            <label className="label font-bold text-xl">Email</label>
             <input
               type="email"
               {...register("email", { required: true })}
@@ -51,9 +55,7 @@ const Login = () => {
             )}
 
             {/* password */}
-            <label className="label font-bold text-xl lg:text-3xl">
-              Password
-            </label>
+            <label className="label font-bold text-xl ">Password</label>
             <input
               type="password"
               {...register("password", { required: true, minLength: 6 })}
@@ -77,6 +79,7 @@ const Login = () => {
           <p>
             New to Zap Shift{" "}
             <Link
+              state={location.state}
               className="text-sky-400 underline font-bold hover:text-blue-800"
               to="/register"
             >
