@@ -81,7 +81,7 @@ const SendPercel = () => {
           {/* two column */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-32 py-4 lg:py-6">
             {/* 1st div  || sender info  */}
-            <div className="space-y-3 ">
+            <div className="space-y-4 ">
               <fieldset className="fieldset">
                 <h2 className="text-lg lg:text-2xl py-2 lg:py-6 font-semibold">
                   Sender Details
@@ -108,7 +108,7 @@ const SendPercel = () => {
                   Sender Phone No
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   className="input w-full"
                   placeholder="Sender Phone No"
                 />
@@ -134,7 +134,7 @@ const SendPercel = () => {
             </div>
 
             {/* 2nd div  || receiver info */}
-            <div className="space-y-3 ">
+            <div className="space-y-4 ">
               <fieldset className="fieldset">
                 <h2 className="text-lg lg:text-2xl py-2 lg:py-6 font-semibold">
                   Receiver Details
@@ -148,9 +148,26 @@ const SendPercel = () => {
                   className="input  w-full"
                   placeholder="Enter Receiver Name"
                 />
+                <label className="label text-lg font-bold text-gray-600">
+                  Receiver Address
+                </label>
+                <input
+                  type="text"
+                  className="input  w-full"
+                  placeholder="Enter Receiver Address"
+                />
+                <label className="label text-lg font-bold text-gray-600">
+                  Receiver Contact No
+                </label>
+                <input
+                  type="number"
+                  className="input  w-full"
+                  placeholder="Enter Contact No"
+                />
               </fieldset>
             </div>
           </div>
+          {/* submit button */}
           <input
             type="submit"
             className="btn my-3 lg:my-6 bg-[#CAEB66] hover:bg-teal-800 cursor-pointer hover:text-white text-black"
