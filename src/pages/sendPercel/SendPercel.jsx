@@ -81,7 +81,7 @@ const SendPercel = () => {
           {/* two column */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-32 py-4 lg:py-6">
             {/* 1st div  || sender info  */}
-            <div className=" ">
+            <div className="space-y-3 ">
               <fieldset className="fieldset">
                 <h2 className="text-lg lg:text-2xl py-2 lg:py-6 font-semibold">
                   Sender Details
@@ -120,11 +120,21 @@ const SendPercel = () => {
                   className="input w-full"
                   placeholder="Select  District"
                 />
+                <label className="label text-lg font-bold text-gray-600">
+                  Pickup Instruction
+                </label>
+                <textarea
+                  rows="5"
+                  cols="40"
+                  type="text"
+                  className="input w-full"
+                  placeholder="Pickup Instruction"
+                />
               </fieldset>
             </div>
 
             {/* 2nd div  || receiver info */}
-            <div className="">
+            <div className="space-y-3 ">
               <fieldset className="fieldset">
                 <h2 className="text-lg lg:text-2xl py-2 lg:py-6 font-semibold">
                   Receiver Details
