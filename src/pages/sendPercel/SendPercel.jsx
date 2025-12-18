@@ -21,7 +21,7 @@ const SendPercel = () => {
         <p className="font-bold text-lg py-2 lg:py-5 lg:text-xl">
           Enter your parcel details
         </p>
-        <hr className="bg-gray-500"></hr>
+        <hr className="border-gray-300"></hr>
       </div>
       {/* form */}
       <div className="">
@@ -77,12 +77,44 @@ const SendPercel = () => {
               />
             </fieldset>
           </div>
+          <hr className="border-gray-300"></hr>
           {/* two column */}
-          <div className="">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-32 py-4 lg:py-6">
             {/* 1st div  || sender info  */}
-            <div className=""></div>
+            <div className=" ">
+              <fieldset className="fieldset">
+                <h2 className="text-lg lg:text-2xl py-2 lg:py-6 font-semibold">
+                  Sender Details
+                </h2>
+                <label className="label text-lg font-bold text-gray-600">
+                  Sender Name
+                </label>
+                <input
+                  type="text"
+                  {...register("parcelName")}
+                  className="input w-full"
+                  placeholder="Enter  Sender Name"
+                />
+              </fieldset>
+            </div>
+
             {/* 2nd div  || receiver info */}
-            <div className=""></div>
+            <div className="">
+              <fieldset className="fieldset">
+                <h2 className="text-lg lg:text-2xl py-2 lg:py-6 font-semibold">
+                  Receiver Details
+                </h2>
+                <label className="label text-lg font-bold text-gray-600">
+                  Receiver Name
+                </label>
+                <input
+                  type="text"
+                  {...register("parcelWeight")}
+                  className="input  w-full"
+                  placeholder="Enter Receiver Name"
+                />
+              </fieldset>
+            </div>
           </div>
           <input
             type="submit"
