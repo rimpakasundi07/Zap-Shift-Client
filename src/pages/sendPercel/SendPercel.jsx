@@ -124,12 +124,9 @@ const SendPercel = () => {
                   Pickup Instruction
                 </label>
                 <textarea
-                  rows="5"
-                  cols="40"
-                  type="text"
-                  className="input w-full"
+                  className="textarea w-full "
                   placeholder="Pickup Instruction"
-                />
+                ></textarea>
               </fieldset>
             </div>
 
@@ -165,15 +162,21 @@ const SendPercel = () => {
                   placeholder="Enter Contact No"
                 />
                 <label className="label text-lg font-bold text-gray-600">
+                  Receiver District
+                </label>
+                <input
+                  type="text"
+                  className="input  w-full"
+                  placeholder="Select District"
+                />
+                <label className="label text-lg font-bold text-gray-600">
                   Delivery Instruction
                 </label>
+
                 <textarea
-                  rows="5"
-                  cols="40"
-                  type="text"
-                  className="input w-full"
+                  className="textarea w-full"
                   placeholder="Delivery Instruction"
-                />
+                ></textarea>
               </fieldset>
             </div>
           </div>
