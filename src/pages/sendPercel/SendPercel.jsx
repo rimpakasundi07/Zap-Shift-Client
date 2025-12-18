@@ -58,7 +58,11 @@ const SendPercel = () => {
             {/* 2nd div  || receiver info */}
             <div className=""></div>
           </div>
-          <input type="submit" className="btn" value="Send Parcel" />
+          <input
+            type="submit"
+            className="btn bg-[#CAEB66] hover:bg-teal-800 cursor-pointer hover:text-white text-black"
+            value="Send Parcel"
+          />
         </form>
       </div>
     </div>
