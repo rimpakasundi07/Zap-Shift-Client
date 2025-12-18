@@ -4,7 +4,7 @@ const Rider = () => {
   return (
     <div className="w-11/12 mx-auto ">
       <div className="py-3 lg:py-8">
-        <h2 className="text-teal-800 font-bold text-lg lg:text-4xl">
+        <h2 className="text-teal-800 font-bold text-xl lg:text-4xl">
           Be a Rider
         </h2>
         <p className="text-gray-500 text-lg py-2 lg:w-[1000px] ">
