@@ -95,6 +95,15 @@ const SendPercel = () => {
                   className="input w-full"
                   placeholder="Enter  Sender Name"
                 />
+
+                <label className="label text-lg font-bold text-gray-600">
+                  Address
+                </label>
+                <input
+                  type="text"
+                  className="input w-full"
+                  placeholder="Enter Your Address"
+                />
               </fieldset>
             </div>
 
