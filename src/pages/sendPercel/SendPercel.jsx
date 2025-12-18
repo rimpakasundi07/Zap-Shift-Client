@@ -91,7 +91,7 @@ const SendPercel = () => {
                 </label>
                 <input
                   type="text"
-                  {...register("parcelName")}
+                  {...register("senderName")}
                   className="input w-full"
                   placeholder="Enter  Sender Name"
                 />
@@ -101,6 +101,7 @@ const SendPercel = () => {
                 </label>
                 <input
                   type="text"
+                  {...register("senderAddress")}
                   className="input w-full"
                   placeholder="Enter Sender Address"
                 />
@@ -109,6 +110,7 @@ const SendPercel = () => {
                 </label>
                 <input
                   type="number"
+                  {...register("senderPhoneNo")}
                   className="input w-full"
                   placeholder="Sender Phone No"
                 />
@@ -117,6 +119,7 @@ const SendPercel = () => {
                 </label>
                 <input
                   type="text"
+                  {...register("senderDistrict")}
                   className="input w-full"
                   placeholder="Select  District"
                 />
@@ -141,7 +144,7 @@ const SendPercel = () => {
                 </label>
                 <input
                   type="text"
-                  {...register("parcelWeight")}
+                  {...register("receiverName")}
                   className="input  w-full"
                   placeholder="Enter Receiver Name"
                 />
