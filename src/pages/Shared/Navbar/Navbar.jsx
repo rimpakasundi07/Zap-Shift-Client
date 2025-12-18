@@ -18,19 +18,16 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/">Services</NavLink>
+        <NavLink to="/service">Services</NavLink>
       </li>
       <li>
         <NavLink to="/coverage">Coverage</NavLink>
       </li>
       <li>
-        <NavLink to="">About Us</NavLink>
+        <NavLink to="/send-percel">Send Percel</NavLink>
       </li>
       <li>
-        <NavLink to="">Pricing</NavLink>
-      </li>
-      <li>
-        <NavLink to="">Be a Rider</NavLink>
+        <NavLink to="/about">About Us</NavLink>
       </li>
     </>
   );
