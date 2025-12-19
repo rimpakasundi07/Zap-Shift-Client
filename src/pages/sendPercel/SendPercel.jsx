@@ -18,13 +18,15 @@ const SendPercel = () => {
   const regions = [...new Set(regionsDuplicate)];
   // explore useMemo useCallback
   const senderRegion = useWatch({ control, name: "senderRegion" });
+  const receiverRegion = useWatch({ control, name: "receiverRegion" });
   //
   const districtsByRegion = (region) => {
     const regionDistricts = serviceCenter.filter((c) => c.region === region);
     const districts = regionDistricts.map((d) => d.district);
     return districts;
   };
-  console.log(regions);
+
+  //console.log(regions);
 
   return (
     <div className="w-11/12 mx-auto py-2 lg:py-8">
@@ -170,6 +172,7 @@ const SendPercel = () => {
                   className="input w-full"
                   placeholder="Enter Sender Address"
                 />
+                {/* phone */}
                 <label className="label text-lg font-bold text-gray-600">
                   Sender Phone No
                 </label>
@@ -179,6 +182,7 @@ const SendPercel = () => {
                   className="input w-full"
                   placeholder="Sender Phone No"
                 />
+                {/* description */}
 
                 <label className="label text-lg font-bold text-gray-600">
                   Pickup Instruction
@@ -232,6 +236,25 @@ const SendPercel = () => {
                     {regions.map((r, i) => (
                       <option key={i} value={r}>
                         {r}
+                      </option>
+                    ))}
+                  </select>
+                </fieldset>
+                {/* receiver  district */}
+
+                <fieldset class="fieldset">
+                  <legend class="fieldset-legend">Receiver District</legend>
+                  <select
+                    {...register("receiverDistrict")}
+                    defaultValue="Pick a district"
+                    class="select"
+                  >
+                    <option disabled selected>
+                      Pick a district
+                    </option>
+                    {districtsByRegion(receiverRegion).map((d, i) => (
+                      <option key={i} value={d}>
+                        {d}
                       </option>
                     ))}
                   </select>
