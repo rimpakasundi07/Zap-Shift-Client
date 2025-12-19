@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { useLoaderData } from "react-router";
+import Swal from "sweetalert2";
 
 const SendPercel = () => {
   const {
@@ -33,8 +34,23 @@ const SendPercel = () => {
     }
 
     console.log("cost", cost);
-
-    // console.log(sameDistrict);
+    Swal.fire({
+      title: "Agree with the cost?",
+      text: `You will be charged${cost} rupee !`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "I agree!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      }
+    });
   };
 
   const regionsDuplicate = serviceCenter.map((c) => c.region);
