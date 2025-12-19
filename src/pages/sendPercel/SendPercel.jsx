@@ -1,12 +1,12 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { useLoaderData } from "react-router";
 
 const SendPercel = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     formState: { errors },
   } = useForm();
   const serviceCenter = useLoaderData();
@@ -16,7 +16,8 @@ const SendPercel = () => {
 
   const regionsDuplicate = serviceCenter.map((c) => c.region);
   const regions = [...new Set(regionsDuplicate)];
-  const senderRegion = watch("senderRegion");
+  // explore useMemo useCallback
+  const senderRegion = useWatch({ control, name: "senderRegion" });
   //
   const districtsByRegion = (region) => {
     const regionDistricts = serviceCenter.filter((c) => c.region === region);
@@ -215,6 +216,28 @@ const SendPercel = () => {
                   className="input w-full"
                   placeholder=" Receiver Email"
                 />
+
+                {/* receiver  region */}
+
+                <fieldset class="fieldset">
+                  <legend class="fieldset-legend">Receiver Regions</legend>
+                  <select
+                    {...register("receiverRegion")}
+                    defaultValue="Pick a region"
+                    class="select"
+                  >
+                    <option disabled selected>
+                      Pick a region
+                    </option>
+                    {regions.map((r, i) => (
+                      <option key={i} value={r}>
+                        {r}
+                      </option>
+                    ))}
+                  </select>
+                </fieldset>
+
+                {/* address */}
                 <label className="label text-lg font-bold text-gray-600">
                   Receiver Address
                 </label>
@@ -224,6 +247,7 @@ const SendPercel = () => {
                   className="input  w-full"
                   placeholder="Enter Receiver Address"
                 />
+                {/* contract  */}
                 <label className="label text-lg font-bold text-gray-600">
                   Receiver Contact No
                 </label>
@@ -239,7 +263,7 @@ const SendPercel = () => {
                 <input
                   type="text"
                   {...register("receiverDistrict")}
-                  className="input  w-full"
+                  className="input w-full"
                   placeholder="Select District"
                 />
                 <label className="label text-lg font-bold text-gray-600">
