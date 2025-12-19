@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useLoaderData } from "react-router";
 
 const SendPercel = () => {
   const {
@@ -7,10 +8,14 @@ const SendPercel = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const serviceCenter = useLoaderData();
 
   const handleSendPercel = (data) => {
     console.log(data);
   };
+
+  const regions = serviceCenter.map((c) => c.region);
+  console.log(regions);
 
   return (
     <div className="w-11/12 mx-auto py-2 lg:py-8">
@@ -106,6 +111,32 @@ const SendPercel = () => {
                   className="input w-full"
                   placeholder="Sender Email"
                 />
+                {/* sender region */}
+
+                <fieldset class="fieldset">
+                  <legend class="fieldset-legend">Sender Regions</legend>
+                  <select defaultValue="Pick a region" class="select">
+                    <option disabled selected>
+                      Pick a region
+                    </option>
+                    <option>East</option>
+                    <option>FireFox</option>
+                    <option>Safari</option>
+                  </select>
+                  <span class="label">Optional</span>
+                </fieldset>
+
+                {/* district */}
+                <label className="label text-lg font-bold text-gray-600">
+                  Your District
+                </label>
+                <input
+                  type="text"
+                  {...register("senderDistrict")}
+                  className="input w-full"
+                  placeholder="Select  District"
+                />
+                {/* address */}
 
                 <label className="label text-lg font-bold text-gray-600">
                   Address
@@ -125,15 +156,7 @@ const SendPercel = () => {
                   className="input w-full"
                   placeholder="Sender Phone No"
                 />
-                <label className="label text-lg font-bold text-gray-600">
-                  Your District
-                </label>
-                <input
-                  type="text"
-                  {...register("senderDistrict")}
-                  className="input w-full"
-                  placeholder="Select  District"
-                />
+
                 <label className="label text-lg font-bold text-gray-600">
                   Pickup Instruction
                 </label>

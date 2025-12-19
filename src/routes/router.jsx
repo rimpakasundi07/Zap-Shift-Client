@@ -34,6 +34,7 @@ export const router = createBrowserRouter([
             <SendPercel></SendPercel>
           </PrivateRoutes>
         ),
+        loader: () => fetch("/serviceCenter.json").then((res) => res.json()),
       },
       {
         path: "/coverage",
