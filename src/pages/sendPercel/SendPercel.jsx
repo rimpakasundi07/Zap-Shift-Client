@@ -12,6 +12,29 @@ const SendPercel = () => {
   const serviceCenter = useLoaderData();
   const handleSendPercel = (data) => {
     console.log(data);
+    const isDocument = data.parcelType === "document";
+
+    const isSameDistrict = data.senderDistrict === data.receiverDistrict;
+    const parcelWeight = parseFloat(data.parcelWeight);
+    let cost = 0;
+    if (isDocument) {
+      cost = isSameDistrict ? 60 : 80;
+    } else {
+      if (parcelWeight < 3) {
+        cost = isSameDistrict ? 110 : 150;
+      } else {
+        const minCharge = isSameDistrict ? 110 : 150;
+        const extraWeight = parcelWeight - 3;
+        const extraCharge = isSameDistrict
+          ? extraWeight * 40
+          : extraWeight * 40 + 40;
+        cost = minCharge + extraCharge;
+      }
+    }
+
+    console.log("cost", cost);
+
+    // console.log(sameDistrict);
   };
 
   const regionsDuplicate = serviceCenter.map((c) => c.region);
@@ -124,8 +147,10 @@ const SendPercel = () => {
                 />
                 {/* sender region */}
 
-                <fieldset class="fieldset">
-                  <legend class="fieldset-legend">Sender Regions</legend>
+                <fieldset className="fieldset">
+                  <legend className="fieldset-legend label text-lg font-bold text-gray-600">
+                    Sender Regions
+                  </legend>
                   <select
                     {...register("senderRegion")}
                     defaultValue="Pick a region"
@@ -144,8 +169,10 @@ const SendPercel = () => {
 
                 {/* district */}
 
-                <fieldset class="fieldset">
-                  <legend class="fieldset-legend">Sender District </legend>
+                <fieldset className="fieldset">
+                  <legend className="fieldset-legend label text-lg font-bold text-gray-600">
+                    Sender District
+                  </legend>
                   <select
                     {...register("senderDistrict")}
                     defaultValue="Pick a district"
@@ -223,8 +250,10 @@ const SendPercel = () => {
 
                 {/* receiver  region */}
 
-                <fieldset class="fieldset">
-                  <legend class="fieldset-legend">Receiver Regions</legend>
+                <fieldset className="fieldset">
+                  <legend className="fieldset-legend label text-lg font-bold text-gray-600">
+                    Receiver Regions
+                  </legend>
                   <select
                     {...register("receiverRegion")}
                     defaultValue="Pick a region"
@@ -242,8 +271,10 @@ const SendPercel = () => {
                 </fieldset>
                 {/* receiver  district */}
 
-                <fieldset class="fieldset">
-                  <legend class="fieldset-legend">Receiver District</legend>
+                <fieldset className="fieldset">
+                  <legend className="fieldset-legend label text-lg font-bold text-gray-600">
+                    Receiver District
+                  </legend>
                   <select
                     {...register("receiverDistrict")}
                     defaultValue="Pick a district"
@@ -280,15 +311,7 @@ const SendPercel = () => {
                   className="input  w-full"
                   placeholder="Enter Contact No"
                 />
-                <label className="label text-lg font-bold text-gray-600">
-                  Receiver District
-                </label>
-                <input
-                  type="text"
-                  {...register("receiverDistrict")}
-                  className="input w-full"
-                  placeholder="Select District"
-                />
+
                 <label className="label text-lg font-bold text-gray-600">
                   Delivery Instruction
                 </label>
