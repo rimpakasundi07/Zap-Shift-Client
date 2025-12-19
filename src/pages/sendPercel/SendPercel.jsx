@@ -6,15 +6,23 @@ const SendPercel = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
   const serviceCenter = useLoaderData();
-
   const handleSendPercel = (data) => {
     console.log(data);
   };
 
-  const regions = serviceCenter.map((c) => c.region);
+  const regionsDuplicate = serviceCenter.map((c) => c.region);
+  const regions = [...new Set(regionsDuplicate)];
+  const senderRegion = watch("senderRegion");
+  //
+  const districtsByRegion = (region) => {
+    const regionDistricts = serviceCenter.filter((c) => c.region === region);
+    const districts = regionDistricts.map((d) => d.district);
+    return districts;
+  };
   console.log(regions);
 
   return (
@@ -115,27 +123,41 @@ const SendPercel = () => {
 
                 <fieldset class="fieldset">
                   <legend class="fieldset-legend">Sender Regions</legend>
-                  <select defaultValue="Pick a region" class="select">
+                  <select
+                    {...register("senderRegion")}
+                    defaultValue="Pick a region"
+                    class="select"
+                  >
                     <option disabled selected>
                       Pick a region
                     </option>
-                    <option>East</option>
-                    <option>FireFox</option>
-                    <option>Safari</option>
+                    {regions.map((r, i) => (
+                      <option key={i} value={r}>
+                        {r}
+                      </option>
+                    ))}
                   </select>
-                  <span class="label">Optional</span>
                 </fieldset>
 
                 {/* district */}
-                <label className="label text-lg font-bold text-gray-600">
-                  Your District
-                </label>
-                <input
-                  type="text"
-                  {...register("senderDistrict")}
-                  className="input w-full"
-                  placeholder="Select  District"
-                />
+
+                <fieldset class="fieldset">
+                  <legend class="fieldset-legend">Sender District </legend>
+                  <select
+                    {...register("senderDistrict")}
+                    defaultValue="Pick a district"
+                    class="select"
+                  >
+                    <option disabled selected>
+                      Pick a district
+                    </option>
+                    {districtsByRegion(senderRegion).map((r, i) => (
+                      <option key={i} value={r}>
+                        {r}
+                      </option>
+                    ))}
+                  </select>
+                </fieldset>
                 {/* address */}
 
                 <label className="label text-lg font-bold text-gray-600">
