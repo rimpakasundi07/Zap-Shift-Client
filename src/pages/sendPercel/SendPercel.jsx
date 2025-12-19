@@ -86,6 +86,7 @@ const SendPercel = () => {
                 <h2 className="text-lg lg:text-2xl py-2 lg:py-6 font-semibold">
                   Sender Details
                 </h2>
+                {/* NAME */}
                 <label className="label text-lg font-bold text-gray-600">
                   Sender Name
                 </label>
@@ -94,6 +95,16 @@ const SendPercel = () => {
                   {...register("senderName")}
                   className="input w-full"
                   placeholder="Enter  Sender Name"
+                />
+                {/*Email  */}
+                <label className="label text-lg font-bold text-gray-600">
+                  Sender Email
+                </label>
+                <input
+                  type="email"
+                  {...register("senderEmail")}
+                  className="input w-full"
+                  placeholder="Sender Email"
                 />
 
                 <label className="label text-lg font-bold text-gray-600">
@@ -127,7 +138,7 @@ const SendPercel = () => {
                   Pickup Instruction
                 </label>
                 <textarea
-                  className="textarea w-full "
+                  className="textarea w-full"
                   placeholder="Pickup Instruction"
                 ></textarea>
               </fieldset>
@@ -145,8 +156,19 @@ const SendPercel = () => {
                 <input
                   type="text"
                   {...register("receiverName")}
-                  className="input  w-full"
+                  className="input w-full"
                   placeholder="Enter Receiver Name"
+                />
+
+                {/*Email  */}
+                <label className="label text-lg font-bold text-gray-600">
+                  Receiver Email
+                </label>
+                <input
+                  type="email"
+                  {...register("receiverEmail")}
+                  className="input w-full"
+                  placeholder=" Receiver Email"
                 />
                 <label className="label text-lg font-bold text-gray-600">
                   Receiver Address
