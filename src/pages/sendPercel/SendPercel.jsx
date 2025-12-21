@@ -41,6 +41,9 @@ const SendPercel = () => {
     }
 
     console.log("cost", cost);
+
+    data.cost = cost;
+
     Swal.fire({
       title: "Agree with the cost?",
       text: `You will be charged${cost} rupee !`,
@@ -218,17 +221,7 @@ const SendPercel = () => {
                     ))}
                   </select>
                 </fieldset>
-                {/* address */}
 
-                <label className="label text-lg font-bold text-gray-600">
-                  Address
-                </label>
-                <input
-                  type="text"
-                  {...register("senderAddress")}
-                  className="input w-full"
-                  placeholder="Enter Sender Address"
-                />
                 {/* phone */}
                 <label className="label text-lg font-bold text-gray-600">
                   Sender Phone No
@@ -321,16 +314,6 @@ const SendPercel = () => {
                   </select>
                 </fieldset>
 
-                {/* address */}
-                <label className="label text-lg font-bold text-gray-600">
-                  Receiver Address
-                </label>
-                <input
-                  type="text"
-                  {...register("receiverAddress")}
-                  className="input  w-full"
-                  placeholder="Enter Receiver Address"
-                />
                 {/* contract  */}
                 <label className="label text-lg font-bold text-gray-600">
                   Receiver Contact No
