@@ -5,12 +5,13 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const MyParcels = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const { data: parcels = [] } = useQuery({
+  const { data: parcels = [], refetch } = useQuery({
     queryKey: ["myParcels", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/parcels?email=${user.email}`);
@@ -33,6 +34,8 @@ const MyParcels = () => {
         axiosSecure.delete(`/parcels/${id}`).then((res) => {
           console.log(res.data);
           if (res.data.deletedCount) {
+            // refetch the data in the ui
+            refetch();
             Swal.fire({
               title: "Deleted!",
               text: "Your parcel request has been deleted.",
@@ -57,7 +60,8 @@ const MyParcels = () => {
               <th className="text-green-700  text-center"></th>
               <th className="text-green-700  text-center">Name</th>
               <th className="text-green-700  text-center">Cost</th>
-              <th className="text-green-700  text-center">Payment Status</th>
+              <th className="text-green-700  text-center">Payment</th>
+              <th className="text-green-700  text-center">Delivery Status</th>
               <th className="text-green-700 text-center">Actions</th>
             </tr>
           </thead>
@@ -67,7 +71,18 @@ const MyParcels = () => {
                 <th>{index + 1}</th>
                 <td className=" text-center">{parcel.parcelName}</td>
                 <td className=" text-center">{parcel.cost}</td>
-                <td className=" text-center">Blue</td>
+                <td className=" text-center">
+                  {parcel.paymentStatus === "paid" ? (
+                    <span className="text-green-500">Paid</span>
+                  ) : (
+                    <Link>
+                      <button className="btn btn-primary hover:bg-teal-900 hover:text-white font-bold text-blue-800">
+                        Pay
+                      </button>
+                    </Link>
+                  )}
+                </td>
+                <td className=" text-center">{parcel.deliveryStatus}</td>
                 <td className="mx-2 space-x-5  text-center">
                   <button className="btn btn-square hover:bg-primary">
                     <FaRegEdit />
