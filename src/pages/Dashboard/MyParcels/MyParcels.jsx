@@ -75,7 +75,7 @@ const MyParcels = () => {
                   {parcel.paymentStatus === "paid" ? (
                     <span className="text-green-500">Paid</span>
                   ) : (
-                    <Link>
+                    <Link to={`/dashboard/payment/${parcel._id}`}>
                       <button className="btn btn-primary hover:bg-teal-900 hover:text-white font-bold text-blue-800">
                         Pay
                       </button>

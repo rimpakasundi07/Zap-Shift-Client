@@ -8,7 +8,9 @@ const PrivateRoutes = ({ children }) => {
   // console.log("location", location);
 
   if (loading) {
-    return <span className="loading loading-bars loading-xl"></span>;
+    return (
+      <span className="loading lg:py-10 py-5 loading-bars loading-xl"></span>
+    );
   }
 
   if (!user) {
