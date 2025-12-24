@@ -24,7 +24,12 @@ const Payment = () => {
 
   return (
     <div>
-      <p>Please pay :{parcel.parcelName}</p>
+      <p>
+        Please ${parcel.cost} pay :{parcel.parcelName}
+      </p>
+      <button className="lg:px-5 lg:py-3 p-2 rounded-lg hover:border-2 bg-[#caeb66]  hover:border-[#caeb66]  hover:text-[#caeb66] hover:bg-white font-bold lg:font-extrabold text-black lg:mr-6 ">
+        Pay
+      </button>
     </div>
   );
 };
