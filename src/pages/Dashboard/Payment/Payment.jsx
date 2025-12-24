@@ -13,11 +13,22 @@ const Payment = () => {
       return res.data;
     },
   });
+  const handlePayment = async () => {
+    const paymentInfo = {
+      cost: parcel.cost,
+      parcelId: parcel._id,
+      senderEmail: parcel.senderEmail,
+      parcelName: parcel.parcelName,
+    };
+
+    const res = await axiosSecure.post("/create-checkout-session", paymentInfo);
+    console.log(res.data);
+  };
 
   if (isLoading) {
     return (
       <div>
-        <span className="loading  lg:py-10 py-5 loading-bars loading-xl"></span>
+        <span className="loading lg:py-10 py-5 loading-bars loading-xl"></span>
       </div>
     );
   }
@@ -27,7 +38,10 @@ const Payment = () => {
       <p>
         Please ${parcel.cost} pay :{parcel.parcelName}
       </p>
-      <button className="lg:px-5 lg:py-3 p-2 rounded-lg hover:border-2 bg-[#caeb66]  hover:border-[#caeb66]  hover:text-[#caeb66] hover:bg-white font-bold lg:font-extrabold text-black lg:mr-6 ">
+      <button
+        onClick={handlePayment}
+        className="lg:px-5 lg:py-3 p-2 rounded-lg hover:border-2 bg-[#caeb66]  hover:border-[#caeb66]  hover:text-[#caeb66] hover:bg-white font-bold lg:font-extrabold text-black lg:mr-6"
+      >
         Pay
       </button>
     </div>
