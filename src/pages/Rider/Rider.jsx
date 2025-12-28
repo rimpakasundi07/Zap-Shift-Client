@@ -119,6 +119,33 @@ const Rider = () => {
                 </select>
               </fieldset>
 
+              {/* address */}
+
+              <label className="label text-lg font-bold text-gray-600">
+                Your address
+              </label>
+              <input
+                type="text"
+                {...register("address")}
+                className="input w-full"
+                placeholder="Enter your address"
+              />
+
+              {/* details */}
+
+              <fieldset className="fieldset">
+                <h4 className="fieldset-legend label text-lg font-bold text-gray-600">
+                  More details
+                </h4>
+                <label className="label">Driving License</label>
+                <input
+                  type="text"
+                  {...register("license")}
+                  className="input w-full"
+                  placeholder="Driving License"
+                />
+              </fieldset>
+
               {/* phone */}
               <label className="label text-lg font-bold text-gray-600">
                 Sender Phone No
