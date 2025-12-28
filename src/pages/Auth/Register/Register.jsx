@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import axios from "axios";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Register = () => {
   const {
@@ -16,15 +17,19 @@ const Register = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  console.log("in the register", location);
+  const axiosSecure = useAxiosSecure();
+
+  // console.log("in the register", location);
 
   const handleRegistration = (data) => {
-    console.log("after register", data.photo[0]);
+    //   console.log("after register", data.photo[0]);
     const profileImg = data.photo[0];
 
     registerUser(data.email, data.password)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
+        //   result
+        //    console.log(result.user);
+
         // 1. store the image in form data
         const formData = new FormData();
         formData.append("image", profileImg);
@@ -33,16 +38,30 @@ const Register = () => {
           import.meta.env.VITE_image_host_key
         }`;
         axios.post(image_API_URL, formData).then((res) => {
-          console.log("after image upload", res.data.data.url);
+          // console.log("after image upload", res.data.data.url);
+          const photoURL = res.data.data.url;
+
+          // create user in the data base
+          const userInfo = {
+            email: data.email,
+            displayName: data.name,
+            photoURL: photoURL,
+          };
+          axiosSecure.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              console.log("user created in the database");
+            }
+          });
 
           // update user profile to firebase
           const userProfile = {
             displayName: data.name,
-            photoURL: res.data.data.url,
+            photoURL: photoURL,
+            // photoURL: res.data.data.url,
           };
           updateUserProfile(userProfile)
             .then(() => {
-              console.log("user profile updated");
+              console.log("user profile updated done");
               navigate(location.state || "/");
             })
             .catch((error) => console.log(error));
