@@ -79,10 +79,10 @@ const Rider = () => {
 
               <fieldset className="fieldset">
                 <legend className="fieldset-legend label text-lg font-bold text-gray-600">
-                  Sender Regions
+                  Rider Regions
                 </legend>
                 <select
-                  {...register("senderRegion")}
+                  {...register("region")}
                   defaultValue="Pick a region"
                   class="select"
                 >
@@ -90,6 +90,28 @@ const Rider = () => {
                     Pick a region
                   </option>
                   {regions.map((r, i) => (
+                    <option key={i} value={r}>
+                      {r}
+                    </option>
+                  ))}
+                </select>
+              </fieldset>
+
+              {/* district */}
+
+              <fieldset className="fieldset">
+                <legend className="fieldset-legend label text-lg font-bold text-gray-600">
+                  District
+                </legend>
+                <select
+                  {...register("district")}
+                  defaultValue="Pick a district"
+                  class="select"
+                >
+                  <option disabled selected>
+                    Pick a district
+                  </option>
+                  {districtsByRegion(senderRegion).map((r, i) => (
                     <option key={i} value={r}>
                       {r}
                     </option>
