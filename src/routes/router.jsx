@@ -32,6 +32,7 @@ export const router = createBrowserRouter([
             <Rider></Rider>
           </PrivateRoutes>
         ),
+        loader: () => fetch("/serviceCenter.json").then((res) => res.json()),
       },
       {
         path: "/send-percel",

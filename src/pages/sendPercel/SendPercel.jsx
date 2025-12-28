@@ -14,11 +14,9 @@ const SendPercel = () => {
   } = useForm();
 
   const { user } = useAuth();
-
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
 
-  const serviceCenter = useLoaderData();
   const handleSendPercel = (data) => {
     console.log(data);
     const isDocument = data.parcelType === "document";
@@ -73,7 +71,7 @@ const SendPercel = () => {
       }
     });
   };
-
+  const serviceCenter = useLoaderData();
   const regionsDuplicate = serviceCenter.map((c) => c.region);
   const regions = [...new Set(regionsDuplicate)];
   // explore useMemo useCallback
