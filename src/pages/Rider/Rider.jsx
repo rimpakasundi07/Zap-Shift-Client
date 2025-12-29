@@ -3,6 +3,8 @@ import { useForm, useWatch } from "react-hook-form";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import { useLoaderData } from "react-router";
+import Swal from "sweetalert2";
+import rider from "../../assets/agent-pending.png";
 
 const Rider = () => {
   const {
@@ -30,12 +32,24 @@ const Rider = () => {
 
   const handleRiderApplication = (data) => {
     console.log(data);
+    axiosSecure.post("/riders", data).then((res) => {
+      if (res.data.insertedId) {
+        Swal.fire({
+          position: "top-end",
+          title:
+            "Youe application has been submitted. We will reach to you in 7 days.",
+          showConfirmButton: false,
+          icon: "success",
+          timer: 2000,
+        });
+      }
+    });
   };
 
   return (
     <div className="w-11/12 mx-auto ">
       {/* textt */}
-      <div className="py-3 lg:py-8">
+      <div className="py-3 lg:py-4">
         <h2 className="text-teal-800 font-bold text-xl lg:text-4xl">
           Be a Rider
         </h2>
@@ -46,22 +60,22 @@ const Rider = () => {
         </p>
       </div>
       {/*  form  */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-32 py-4 lg:py-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-32 py-4 ">
         {/* left side */}
         <div className="">
           <form onSubmit={handleSubmit(handleRiderApplication)}>
             <div className="space-y-4 ">
               <fieldset className="fieldset">
-                <h2 className="text-lg lg:text-2xl text-teal-800 py-2 lg:py-6 font-bold">
+                <h2 className="text-lg lg:text-2xl text-teal-800 py-2 font-bold">
                   Tell us about yourself
                 </h2>
                 {/* NAME */}
                 <label className="label text-lg font-bold text-gray-600">
-                  Your Name
+                  Rider Name
                 </label>
                 <input
                   type="text"
-                  {...register("senderName")}
+                  {...register("name")}
                   defaultValue={user?.displayName}
                   className="input w-full"
                   placeholder="Enter your Name"
@@ -69,16 +83,16 @@ const Rider = () => {
 
                 {/*Email  */}
                 <label className="label text-lg font-bold text-gray-600">
-                  Sender Email
+                  Rider Email
                 </label>
                 <input
                   type="email"
-                  {...register("senderEmail")}
+                  {...register("email")}
                   defaultValue={user?.email}
                   className="input w-full"
-                  placeholder="Sender Email"
+                  placeholder=" Enter Rider Email"
                 />
-                {/* sender region */}
+                {/* rider region */}
 
                 <fieldset className="fieldset">
                   <legend className="fieldset-legend label text-lg font-bold text-gray-600">
@@ -86,10 +100,10 @@ const Rider = () => {
                   </legend>
                   <select
                     {...register("region")}
-                    defaultValue="Pick a region"
-                    class="select"
+                    defaultValue=""
+                    className="select"
                   >
-                    <option disabled selected>
+                    <option value="" disabled>
                       Pick a region
                     </option>
                     {regions.map((r, i) => (
@@ -106,47 +120,23 @@ const Rider = () => {
                   <legend className="fieldset-legend label text-lg font-bold text-gray-600">
                     District
                   </legend>
+
                   <select
                     {...register("district")}
-                    defaultValue="Pick a district"
-                    class="select"
+                    defaultValue=""
+                    className="select"
                   >
-                    <option disabled selected>
+                    <option value="" disabled>
                       Pick a district
                     </option>
-                    {districtsByRegion(riderRegion).map((r, i) => (
-                      <option key={i} value={r}>
-                        {r}
-                      </option>
-                    ))}
+
+                    {riderRegion &&
+                      districtsByRegion(riderRegion).map((r, i) => (
+                        <option key={i} value={r}>
+                          {r}
+                        </option>
+                      ))}
                   </select>
-                </fieldset>
-
-                {/* bike */}
-
-                <label className="label text-lg font-bold text-gray-600">
-                  Bike
-                </label>
-                <input
-                  type="text"
-                  {...register("bike")}
-                  className="input w-full"
-                  placeholder="Bike address"
-                />
-
-                {/* details & liencense */}
-
-                <fieldset className="fieldset">
-                  <h4 className="fieldset-legend label text-lg font-bold text-gray-600">
-                    More details
-                  </h4>
-
-                  <input
-                    type="text"
-                    {...register("license")}
-                    className="input w-full"
-                    placeholder="Driving License"
-                  />
                 </fieldset>
 
                 <fieldset className="fieldset">
@@ -156,6 +146,7 @@ const Rider = () => {
                   </label>
                   <input
                     type="text"
+                    {...register("License")}
                     className="input w-full"
                     placeholder="Driving License Number"
                   />
@@ -166,7 +157,7 @@ const Rider = () => {
                   </label>
                   <input
                     type="text"
-                    {...register("receiverName")}
+                    {...register("NID")}
                     className="input w-full"
                     placeholder="NID"
                   />
@@ -176,19 +167,19 @@ const Rider = () => {
                     Phone No
                   </label>
                   <input
-                    type="number"
+                    type="tel"
                     {...register("phoneNo")}
                     className="input w-full"
                     placeholder="Enter Phone No"
                   />
 
-                  {/*  */}
+                  {/*  Bike Brand Model and Year  */}
                   <label className="label text-lg font-bold text-gray-600">
                     Bike Brand Model and Year
                   </label>
                   <input
-                    type="email"
-                    {...register("receiverEmail")}
+                    type="text"
+                    {...register("bikeBrand")}
                     className="input w-full"
                     placeholder="Bike Brand Model and Year"
                   />
@@ -198,18 +189,23 @@ const Rider = () => {
                     Tell Us About Yourself
                   </label>
                   <textarea
-                    type="email"
-                    className="input w-full lg:h-[100px] "
+                    {...register("about")}
+                    className="textarea w-full lg:h-[100px]"
                     placeholder="Tell Us About Yourself"
-                  ></textarea>
+                  />
                 </fieldset>
               </fieldset>
             </div>
+            <input
+              type="submit"
+              className="btn my-3 lg:my-6 w-full bg-[#CAEB66] hover:bg-teal-800 cursor-pointer hover:text-white text-black"
+              value="Apply as a rider"
+            />
           </form>
         </div>
         {/* /right side */}
         <div className="">
-          <img src="" alt="" />
+          <img src={rider} alt="" />
         </div>
       </div>
     </div>

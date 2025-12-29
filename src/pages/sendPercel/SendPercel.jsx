@@ -213,7 +213,7 @@ const SendPercel = () => {
                   <select
                     {...register("senderDistrict")}
                     defaultValue="Pick a district"
-                    class="select"
+                    className="select"
                   >
                     <option disabled selected>
                       Pick a district
@@ -296,7 +296,7 @@ const SendPercel = () => {
                   <select
                     {...register("receiverDistrict")}
                     defaultValue="Pick a district"
-                    class="select"
+                    className="select"
                   >
                     <option disabled selected>
                       Pick a district
