@@ -1,5 +1,5 @@
 import React from "react";
-import { FaRegCreditCard } from "react-icons/fa";
+import { FaMotorcycle, FaRegCreditCard } from "react-icons/fa";
 import { TbTruckDelivery } from "react-icons/tb";
 import { Link, NavLink, Outlet } from "react-router";
 
@@ -94,6 +94,17 @@ const DashboardLayout = () => {
                   <span className="is-drawer-close:hidden">
                     Payment History
                   </span>
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to="/dashboard/approve-riders"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="Approve Riders"
+                >
+                  <FaMotorcycle />
+                  <span className="is-drawer-close:hidden">Approve Riders</span>
                 </NavLink>
               </li>
 

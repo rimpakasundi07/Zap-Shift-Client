@@ -14,6 +14,8 @@ const Rider = () => {
     // formState: { errors },
   } = useForm();
 
+  // console.log(errors);
+
   const { user } = useAuth();
 
   const axiosSecure = useAxiosSecure();
@@ -30,21 +32,50 @@ const Rider = () => {
 
   const riderRegion = useWatch({ control, name: "region" });
 
-  const handleRiderApplication = (data) => {
-    console.log(data);
-    axiosSecure.post("/riders", data).then((res) => {
+  const handleRiderApplication = async (data) => {
+    console.log("Form Data:", data); // ১. ডাটা চেক
+
+    try {
+      const res = await axiosSecure.post("/riders", data);
+      console.log("Server Response:", res.data); // ২. রেসপন্স চেক
+
       if (res.data.insertedId) {
         Swal.fire({
           position: "top-end",
-          title:
-            "Youe application has been submitted. We will reach to you in 7 days.",
+          title: "Your application has been submitted.",
           showConfirmButton: false,
           icon: "success",
           timer: 2000,
         });
       }
-    });
+    } catch (error) {
+      console.error("Submission Error:", error); // ৩. এরর চেক
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong! Check console.",
+      });
+    }
   };
+
+  // const handleRiderApplication = (data) => {
+  //   console.log(data);
+
+  //   axiosSecure.post("/riders", data)
+  //   .then((res) => {
+  //     console.log("Server Response:", res.data);
+  //     if (res.data.insertedId) {
+  //       Swal.fire({
+  //         position: "top-end",
+  //         title:
+  //           "Youe application has been submitted. We will reach to you in 7 days.",
+  //         showConfirmButton: false,
+  //         icon: "success",
+  //         timer: 2000,
+  //       });
+  //     }
+  //   });
+  // };
 
   return (
     <div className="w-11/12 mx-auto ">
