@@ -70,7 +70,17 @@ const ApproveRiders = () => {
                   <th>{index + 1} </th>
                   <td className="text-center">{rider.name}</td>
                   <td className="text-center">{rider.email}</td>
-                  <td className="text-center font-bold">{rider.status}</td>
+                  <td className="text-center font-bold">
+                    <p
+                      className={`${
+                        rider.status === "approved"
+                          ? "text-green-500"
+                          : "text-red-600"
+                      }  `}
+                    >
+                      {rider.status}
+                    </p>
+                  </td>
                   <td className="text-center">{rider.district}</td>
                   <td className="space-x-3 text-center">
                     <button
