@@ -8,7 +8,8 @@ import Swal from "sweetalert2";
 
 const ApproveRiders = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: riders = [] } = useQuery({
+
+  const { refetch, data: riders = [] } = useQuery({
     queryKey: ["riders", "pending"],
     queryFn: async () => {
       const res = await axiosSecure.get("/riders");
@@ -16,19 +17,20 @@ const ApproveRiders = () => {
     },
   });
 
-  // to addd  || approved user
+  // rider updated  status
 
-  const handleApproval = (id) => {
-    const updateInfo = { status: "approved" };
+  const updateRiderStatus = (rider, status) => {
+    const updateInfo = { status: status, email: rider.email };
 
     axiosSecure
-      .patch(`/riders/${id}`, updateInfo)
+      .patch(`/riders/${rider._id}`, updateInfo)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
+          refetch();
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Rider's has been approved !",
+            title: `Rider's status is set to ${status}.`,
             showConfirmButton: false,
             timer: 2000,
           });
@@ -43,6 +45,18 @@ const ApproveRiders = () => {
           text: "Something went wrong! Please try again.",
         });
       });
+  };
+
+  //  approved user
+
+  const handleApproval = (rider) => {
+    updateRiderStatus(rider, "approved");
+  };
+
+  // user rejected
+
+  const handleRejection = (rider) => {
+    updateRiderStatus(rider, "rejected");
   };
 
   return (
@@ -83,16 +97,25 @@ const ApproveRiders = () => {
                   </td>
                   <td className="text-center">{rider.district}</td>
                   <td className="space-x-3 text-center">
+                    {/* add button  */}
                     <button
-                      onClick={() => handleApproval(rider._id)}
+                      onClick={() => handleApproval(rider)}
                       className="btn hover:bg-green-400 "
                     >
                       <FaUserCheck />
                     </button>
-                    <button className="btn hover:bg-red-500">
+                    {/* reject button */}
+                    <button
+                      onClick={() => handleRejection(rider)}
+                      className="btn hover:bg-red-500"
+                    >
                       <IoPersonRemove />
                     </button>
-                    <button className="btn hover:bg-gray-300">
+                    {/* trash button  */}
+                    <button
+                      onClick={() => handleDeleteRider(rider)}
+                      className="btn hover:bg-gray-300"
+                    >
                       <IoTrash />
                     </button>
                   </td>
