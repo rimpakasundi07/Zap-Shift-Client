@@ -1,5 +1,6 @@
 import React from "react";
 import { FaMotorcycle, FaRegCreditCard } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa6";
 import { TbTruckDelivery } from "react-icons/tb";
 import { Link, NavLink, Outlet } from "react-router";
 
@@ -46,7 +47,7 @@ const DashboardLayout = () => {
           ></label>
           <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
             {/* Sidebar content here */}
-            <ul className="menu w-full grow">
+            <ul className="menu space-y-3 lg:space-y-7 w-full grow">
               {/* List item */}
               <li>
                 <Link
@@ -97,6 +98,8 @@ const DashboardLayout = () => {
                 </NavLink>
               </li>
 
+              {/* Approve Riders */}
+
               <li>
                 <NavLink
                   to="/dashboard/approve-riders"
@@ -105,6 +108,20 @@ const DashboardLayout = () => {
                 >
                   <FaMotorcycle />
                   <span className="is-drawer-close:hidden">Approve Riders</span>
+                </NavLink>
+              </li>
+
+              {/* Users Management */}
+              <li>
+                <NavLink
+                  to="/dashboard/users-management"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="Users Management"
+                >
+                  <FaUsers></FaUsers>
+                  <span className="is-drawer-close:hidden">
+                    Users Management
+                  </span>
                 </NavLink>
               </li>
 

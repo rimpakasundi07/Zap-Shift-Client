@@ -72,7 +72,7 @@ const MyParcels = () => {
           {/* head */}
           <thead>
             <tr>
-              <th className="text-green-700  text-center"></th>
+              <th></th>
               <th className="text-green-700  text-center">Name</th>
               <th className="text-green-700  text-center">Cost</th>
               <th className="text-green-700  text-center">Payment</th>
@@ -88,7 +88,7 @@ const MyParcels = () => {
                 <td className=" text-center">{parcel.cost}</td>
                 <td className=" text-center">
                   {parcel.paymentStatus === "paid" ? (
-                    <span className="text-green-500">Paid</span>
+                    <span className="text-green-500 font-bold">Paid</span>
                   ) : (
                     <button
                       onClick={() => handlePayment(parcel)}

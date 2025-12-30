@@ -2,9 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { IoPersonRemove } from "react-icons/io5";
-import { FaUserCheck } from "react-icons/fa6";
+import { FaEye, FaRegEye, FaUserCheck } from "react-icons/fa6";
 import { IoTrash } from "react-icons/io5";
 import Swal from "sweetalert2";
+//import { FaRegEye } from "react-icons/fa6";
 
 const ApproveRiders = () => {
   const axiosSecure = useAxiosSecure();
@@ -135,6 +136,9 @@ const ApproveRiders = () => {
                   </td>
                   <td className="text-center">{rider.district}</td>
                   <td className="space-x-3 text-center">
+                    <button className="btn">
+                      <FaRegEye></FaRegEye>
+                    </button>
                     {/* add button  */}
                     <button
                       onClick={() => handleApproval(rider)}
