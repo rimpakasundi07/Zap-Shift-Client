@@ -47,6 +47,44 @@ const ApproveRiders = () => {
       });
   };
 
+  // rider delete function
+  const handleDeleteRider = (rider) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#16a34a",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure
+          .delete(`/riders/${rider._id}`)
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              refetch();
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Rider deleted successfully",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+            }
+          })
+          .catch((error) => {
+            console.error("Delete Error:", error);
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Failed to delete rider!",
+            });
+          });
+      }
+    });
+  };
+
   //  approved user
 
   const handleApproval = (rider) => {
