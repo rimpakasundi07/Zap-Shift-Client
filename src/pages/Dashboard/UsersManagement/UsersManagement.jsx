@@ -3,17 +3,36 @@ import React from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaUserShield } from "react-icons/fa6";
 import { FaUserTimes } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const UsersManagement = () => {
   const axiosSecure = useAxiosSecure();
 
-  const { data: users = [] } = useQuery({
+  const { refetch, data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/users`);
       return res.data;
     },
   });
+
+  const handleMakeUser = (user) => {
+    const roleInfo = { role: "admin" };
+    axiosSecure.patch(`/users/${user._id}`, roleInfo).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${user.displayName} marked as an Admin`,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }
+    });
+  };
+
   return (
     <div>
       <p className="lg:text-5xl text-center lg:py-6 text-xl text-teal-800 font-bold">
@@ -71,7 +90,10 @@ const UsersManagement = () => {
                         <FaUserTimes />
                       </button>
                     ) : (
-                      <button className="btn">
+                      <button
+                        onClick={() => handleMakeUser(user)}
+                        className="btn"
+                      >
                         <FaUserShield />
                       </button>
                     )}
