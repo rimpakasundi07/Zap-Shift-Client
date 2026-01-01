@@ -33,6 +33,22 @@ const UsersManagement = () => {
     });
   };
 
+  const handleRemoveAdmin = (user) => {
+    const roleInfo = { role: "user" };
+    axiosSecure.patch(`/users/${user._id}`, roleInfo).then((res) => {
+      if (res.data.modifiedCount) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${user.displayName} remove from as an Admin`,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }
+    });
+  };
+
   return (
     <div>
       <p className="lg:text-5xl text-center lg:py-6 text-xl text-teal-800 font-bold">
@@ -86,13 +102,16 @@ const UsersManagement = () => {
                   </td>
                   <td className="text-center font-bold">
                     {user.role === "admin" ? (
-                      <button className="btn">
+                      <button
+                        onClick={() => handleRemoveAdmin(user)}
+                        className="btn bg-red-400"
+                      >
                         <FaUserTimes />
                       </button>
                     ) : (
                       <button
                         onClick={() => handleMakeUser(user)}
-                        className="btn"
+                        className="btn bg-green-500"
                       >
                         <FaUserShield />
                       </button>
