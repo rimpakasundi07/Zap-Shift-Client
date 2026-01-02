@@ -7,7 +7,7 @@ import useRole from "../hooks/useRole";
 
 const DashboardLayout = () => {
   const { role } = useRole();
-  console.log("in the dashboard layout", role);
+  // console.log("in the dashboard layout", role);
   return (
     <div>
       <div className="drawer lg:drawer-open">

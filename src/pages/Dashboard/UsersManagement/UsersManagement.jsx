@@ -83,6 +83,30 @@ const UsersManagement = () => {
       <p className="lg:text-5xl text-center lg:py-6 text-xl text-teal-800 font-bold">
         Manage Users: {users.length}
       </p>
+
+      {/* search */}
+      <div className="text-center py-2 lg:pt-6 lg:pb-16 ">
+        <label className="input">
+          <svg
+            className="h-[1em] opacity-50"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <g
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              strokeWidth="2.5"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </g>
+          </svg>
+          <input type="search" className="grow" placeholder="Search users " />
+        </label>
+      </div>
+
       {/* table */}
       <div className="">
         <div className="">
