@@ -16,12 +16,12 @@ const UsersManagement = () => {
     },
   });
 
-  /// to make admin
+  /// to make admin // its added some changes
 
-  const handleMakeUser = (user) => {
+  const handleMakeAdmin = (user) => {
     Swal.fire({
       title: "Are you sure?",
-      text: `Do you want to make ${user.displayName} an Admin?`,
+      text: `Do you want to make ${user.displayName} an Admin ?`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#16a34a",
@@ -31,7 +31,7 @@ const UsersManagement = () => {
       if (result.isConfirmed) {
         const roleInfo = { role: "admin" };
 
-        axiosSecure.patch(`/users/${user._id}`, roleInfo).then((res) => {
+        axiosSecure.patch(`/users/${user._id}/role`, roleInfo).then((res) => {
           if (res.data.modifiedCount) {
             refetch();
             Swal.fire({
@@ -62,7 +62,7 @@ const UsersManagement = () => {
       if (result.isConfirmed) {
         const roleInfo = { role: "user" };
 
-        axiosSecure.patch(`/users/${user._id}`, roleInfo).then((res) => {
+        axiosSecure.patch(`/users/${user._id}/role`, roleInfo).then((res) => {
           if (res.data.modifiedCount) {
             refetch();
             Swal.fire({
@@ -139,7 +139,7 @@ const UsersManagement = () => {
                       </button>
                     ) : (
                       <button
-                        onClick={() => handleMakeUser(user)}
+                        onClick={() => handleMakeAdmin(user)}
                         className="btn bg-green-500"
                       >
                         <FaUserShield />

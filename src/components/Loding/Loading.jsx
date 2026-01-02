@@ -1,5 +1,5 @@
 import Lottie from "react-lottie";
-import loadingAnimation from "../../assets/json/loading.json";
+import loadingAnimation from "../Loding/Loading";
 
 const Loading = () => {
   return (

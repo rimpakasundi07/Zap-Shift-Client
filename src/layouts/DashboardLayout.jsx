@@ -7,6 +7,7 @@ import useRole from "../hooks/useRole";
 
 const DashboardLayout = () => {
   const { role } = useRole();
+  console.log("in the dashboard layout", role);
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -104,7 +105,6 @@ const DashboardLayout = () => {
               {role === "admin" && (
                 <>
                   {/* Approve Riders */}
-
                   <li>
                     <NavLink
                       to="/dashboard/approve-riders"
