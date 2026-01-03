@@ -124,7 +124,7 @@ const DashboardLayout = () => {
                     <NavLink
                       to="/dashboard/assign-riders"
                       className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                      data-tip="Assign riders"
+                      data-tip="Assign Riders"
                     >
                       <MdOutlineElectricCar />
                       <span className="is-drawer-close:hidden">
