@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaUserShield } from "react-icons/fa6";
 import { FaUserTimes } from "react-icons/fa";
@@ -7,11 +7,12 @@ import Swal from "sweetalert2";
 
 const UsersManagement = () => {
   const axiosSecure = useAxiosSecure();
+  const [searchText, setSearchText] = useState("");
 
   const { refetch, data: users = [] } = useQuery({
-    queryKey: ["users"],
+    queryKey: ["users", searchText],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/users`);
+      const res = await axiosSecure.get(`/users?searchText=${searchText}`);
       return res.data;
     },
   });
@@ -84,8 +85,11 @@ const UsersManagement = () => {
         Manage Users: {users.length}
       </p>
 
-      {/* search */}
+      {/* search input */}
       <div className="text-center py-2 lg:pt-6 lg:pb-16 ">
+        <p className="pb-3 text-blue-800 font-semibold">
+          Search text: {searchText}
+        </p>
         <label className="input">
           <svg
             className="h-[1em] opacity-50"
@@ -103,7 +107,12 @@ const UsersManagement = () => {
               <path d="m21 21-4.3-4.3"></path>
             </g>
           </svg>
-          <input type="search" className="grow" placeholder="Search users " />
+          <input
+            onChange={(e) => setSearchText(e.target.value)}
+            type="search"
+            className="grow"
+            placeholder="Search users "
+          />
         </label>
       </div>
 

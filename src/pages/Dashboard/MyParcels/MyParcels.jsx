@@ -76,6 +76,7 @@ const MyParcels = () => {
               <th className="text-green-700  text-center">Name</th>
               <th className="text-green-700  text-center">Cost</th>
               <th className="text-green-700  text-center">Payment</th>
+              <th className="text-green-700  text-center">Tracking Id</th>
               <th className="text-green-700  text-center">Delivery Status</th>
               <th className="text-green-700 text-center">Actions</th>
             </tr>
@@ -98,6 +99,7 @@ const MyParcels = () => {
                     </button>
                   )}
                 </td>
+                <td className=" text-center">{parcel.trackingId}</td>
                 <td className=" text-center">{parcel.deliveryStatus}</td>
                 <td className="mx-2 space-x-5  text-center">
                   <button className="btn btn-square hover:bg-primary">
