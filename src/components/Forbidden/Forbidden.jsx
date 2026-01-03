@@ -1,18 +1,16 @@
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import forbiddenAnimation from "../Forbidden/Forbidden";
 import { Link } from "react-router";
+
 const Forbidden = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <Lottie
-        options={{
-          loop: false,
-          autoplay: true,
-          animationData: forbiddenAnimation,
-        }}
-        height={200}
-        width={200}
-      ></Lottie>
+        animationData={forbiddenAnimation}
+        loop={false}
+        style={{ height: 200, width: 200 }}
+      />
+
       <h1 className="text-3xl font-bold text-red-500">
         You Are Forbidden to Access This Page
       </h1>

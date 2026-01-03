@@ -112,7 +112,10 @@ const ApproveRiders = () => {
                 <th></th>
                 <th className="text-center text-xl font-bold">Name</th>
                 <th className="text-center text-xl font-bold">Email</th>
-                <th className="text-center text-xl font-bold">Status</th>
+                <th className="text-center text-xl font-bold">
+                  Application Status
+                </th>
+                <th className="text-center text-xl font-bold">Work Status</th>
                 <th className="text-center text-xl font-bold">District</th>
                 <th className="text-center text-xl font-bold">Actions</th>
               </tr>
@@ -123,6 +126,7 @@ const ApproveRiders = () => {
                   <th>{index + 1} </th>
                   <td className="text-center">{rider.name}</td>
                   <td className="text-center">{rider.email}</td>
+                  {/* application status */}
                   <td className="text-center font-bold">
                     <p
                       className={`${
@@ -134,6 +138,8 @@ const ApproveRiders = () => {
                       {rider.status}
                     </p>
                   </td>
+                  {/* work status */}
+                  <td className="text-center">{rider.workStatus}</td>
                   <td className="text-center">{rider.district}</td>
                   <td className="space-x-3 text-center">
                     <button className="btn">
