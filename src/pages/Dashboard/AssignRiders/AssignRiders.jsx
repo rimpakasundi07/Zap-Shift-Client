@@ -1,10 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useRef, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const AssignRiders = () => {
+  const [selectedParcel, setSelectedParcel] = useState(null);
   const axiosSecure = useAxiosSecure();
-  const { data: parcels = [] } = useQuery({
+  const riderModalRef = useRef();
+
+  const { data: parcels = [], refetch: parcelsRefetch } = useQuery({
     queryKey: ["parcels", "pending-pickup"],
     queryFn: async () => {
       const res = await axiosSecure.get(
@@ -13,13 +17,52 @@ const AssignRiders = () => {
       return res.data;
     },
   });
+
+  // todo: invalidate query after assigning a rider
+  const { data: riders = [] } = useQuery({
+    queryKey: ["riders", selectedParcel?.senderDistrict, "available"],
+    enabled: !!selectedParcel,
+    queryFn: async () => {
+      const res = await axiosSecure.get(
+        `/riders?status=approved&district=${selectedParcel?.senderDistrict}&workStatus=available`
+      );
+      return res.data;
+    },
+  });
+
+  const openAssignRiderModal = (parcel) => {
+    setSelectedParcel(parcel);
+
+    riderModalRef.current.showModal();
+  };
+
+  const handleAssignRider = (rider) => {
+    const riderAssignInfo = {
+      riderId: rider._id,
+      riderEmail: rider.email,
+      riderName: rider.name,
+      parcelId: selectedParcel._id,
+    };
+    axiosSecure
+      .patch(`/parcels/${selectedParcel._id}`, riderAssignInfo)
+      .then((res) => {
+        if (res.data.modifiedCount) {
+          riderModalRef.current.close();
+          parcelsRefetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `Rider has been assigned.`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
+
   return (
     <div>
-      <p className="lg:text-5xl text-center lg:py-6 text-xl text-teal-800 font-bold">
-        Assign Riders: {parcels.length}
-      </p>
-      {/* table */}
-
+      <h2 className="text-5xl">Assign Riders: {parcels.length}</h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}
@@ -27,29 +70,28 @@ const AssignRiders = () => {
             <tr>
               <th></th>
               <th className="text-center  text-xl font-bold">Name</th>
-              <th className="text-center text-xl font-bold">Cost</th>
-              <th className="text-center text-xl font-bold">Created At</th>
-              <th className="text-center text-xl font-bold">Pickup District</th>
-              <th className="text-center text-xl font-bold">Action</th>
+              <th className="text-center  text-xl font-bold">Cost</th>
+              <th className="text-center  text-xl font-bold">Created At</th>
+              <th className="text-center  text-xl font-bold">
+                Pickup District
+              </th>
+              <th className="text-center  text-xl font-bold">Action</th>
             </tr>
           </thead>
           <tbody>
             {parcels.map((parcel, index) => (
               <tr key={parcel._id}>
-                <th className="text-center"> {index + 1} </th>
-                <td className="text-center text-blue-700 lg:text-2xl ">
-                  {parcel.parcelName}
-                </td>
-                <td className="text-center text-green-600 font-semibold">
-                  $ {parcel.cost}
-                </td>
+                <th>{index + 1}</th>
+                <td className="text-center">{parcel.parcelName}</td>
+                <td className="text-center">{parcel.cost}</td>
                 <td className="text-center">{parcel.createdAt}</td>
-                <td className="text-center font-bold">
-                  {parcel.senderDistrict}
-                </td>
+                <td className="text-center">{parcel.senderDistrict}</td>
                 <td className="text-center">
-                  <button className="lg:px-5 lg:py-3 p-2 rounded-lg hover:border-2 bg-[#caeb66]  hover:border-[#caeb66]  hover:text-[#caeb66] hover:bg-white font-bold lg:font-extrabold text-black lg:mr-6">
-                    Assign Rider
+                  <button
+                    onClick={() => openAssignRiderModal(parcel)}
+                    className="btn btn-primary text-black"
+                  >
+                    Find Riders
                   </button>
                 </td>
               </tr>
@@ -57,20 +99,44 @@ const AssignRiders = () => {
           </tbody>
         </table>
       </div>
-      {/* modal */}
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
-      <button
-        className="btn"
-        onClick={() => document.getElementById("my_modal_5").showModal()}
+      <dialog
+        ref={riderModalRef}
+        className="modal modal-bottom sm:modal-middle"
       >
-        open modal
-      </button>
-      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">
-            Press ESC key or click the button below to close
-          </p>
+          <h3 className="font-bold text-lg">Riders: {riders.length}!</h3>
+
+          <div className="overflow-x-auto">
+            <table className="table table-zebra">
+              {/* head */}
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Job</th>
+                  <th>Favorite Color</th>
+                </tr>
+              </thead>
+              <tbody>
+                {riders.map((rider, i) => (
+                  <tr key={rider._id}>
+                    <th>{i + 1}</th>
+                    <td>{rider.name}</td>
+                    <td>{rider.email}</td>
+                    <td>
+                      <button
+                        onClick={() => handleAssignRider(rider)}
+                        className="btn btn-primary text-black"
+                      >
+                        Assign
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
           <div className="modal-action">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
