@@ -103,6 +103,8 @@ const DashboardLayout = () => {
                 </NavLink>
               </li>
 
+              {/* rider link */}
+
               {role === "rider" && (
                 <>
                   <li>
