@@ -9,7 +9,9 @@ const AssignedDeliveries = () => {
   const { data: parcels = [] } = useQuery({
     queryKey: ["parcels", user.email, "driver_assigned"],
     queryFn: async () => {
-      const res = await axiosSecure.get(``);
+      const res = await axiosSecure.get(
+        `/parcels/rider?riderEmail=${user.email}&deliveryStatus=driver_assigned`
+      );
       return res.data;
     },
   });
@@ -25,18 +27,22 @@ const AssignedDeliveries = () => {
             <tr>
               <th></th>
               <th>Name</th>
-              <th>Job</th>
+              <th>Confirm</th>
               <th>Favorite Color</th>
             </tr>
           </thead>
           <tbody>
-            {}
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-            </tr>
+            {parcels.map((parcel, index) => (
+              <tr key={parcel._id}>
+                <th>{index + 1} </th>
+                <td>{parcel.parcelName}</td>
+                <td className="space-x-3">
+                  <button className="btn btn-primary text-black">Accept</button>
+                  <button className="btn btn-outline btn-error">Reject</button>
+                </td>
+                <td>Blue</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
