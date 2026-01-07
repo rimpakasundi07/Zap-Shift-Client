@@ -17,8 +17,8 @@ const AssignedDeliveries = () => {
     },
   });
 
-  const handleAcceptDelivery = (parcel) => {
-    const statusInfo = { deliveryStatus: "rider_arriving" };
+  const handleDeliveryStatusUpdate = (parcel, status) => {
+    const statusInfo = { deliveryStatus: status };
     axiosSecure
       .patch(`/parcels/${parcel._id}/status`, statusInfo)
       .then((res) => {
@@ -60,7 +60,9 @@ const AssignedDeliveries = () => {
                   {parcel.deliveryStatus === "driver_assigned" ? (
                     <>
                       <button
-                        onClick={() => handleAcceptDelivery(parcel)}
+                        onClick={() =>
+                          handleDeliveryStatusUpdate(parcel, "rider_arriving")
+                        }
                         className="btn btn-primary text-black"
                       >
                         Accept
@@ -73,7 +75,24 @@ const AssignedDeliveries = () => {
                     <span> Accepted </span>
                   )}
                 </td>
-                <td>Blue</td>
+                <td className="space-x-3">
+                  <button
+                    onClick={() =>
+                      handleDeliveryStatusUpdate(parcel, "parcel_picked_up")
+                    }
+                    className="btn btn-primary text-black"
+                  >
+                    Marked as picked up
+                  </button>
+                  <button
+                    onClick={() =>
+                      handleDeliveryStatusUpdate(parcel, "parcel_delivered")
+                    }
+                    className="btn btn-primary text-black"
+                  >
+                    Marked as deliver
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
