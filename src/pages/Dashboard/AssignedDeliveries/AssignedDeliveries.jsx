@@ -19,6 +19,9 @@ const AssignedDeliveries = () => {
 
   const handleDeliveryStatusUpdate = (parcel, status) => {
     const statusInfo = { deliveryStatus: status };
+
+    let message = `Parcel Status is updated with${status.split("_").join(" ")}`;
+
     axiosSecure
       .patch(`/parcels/${parcel._id}/status`, statusInfo)
       .then((res) => {
@@ -27,7 +30,7 @@ const AssignedDeliveries = () => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: `Thank you for accepting.`,
+            title: message,
             showConfirmButton: false,
             timer: 1500,
           });
@@ -72,7 +75,9 @@ const AssignedDeliveries = () => {
                       </button>
                     </>
                   ) : (
-                    <span> Accepted </span>
+                    <span className="text-green-500 font-bold text-xl">
+                      Accepted
+                    </span>
                   )}
                 </td>
                 <td className="space-x-3">

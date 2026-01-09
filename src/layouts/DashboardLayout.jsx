@@ -1,5 +1,6 @@
 import React from "react";
 import { FaMotorcycle, FaRegCreditCard, FaTasks } from "react-icons/fa";
+import { LuCircleCheckBig } from "react-icons/lu";
 import { FaUsers } from "react-icons/fa6";
 import { TbTruckDelivery } from "react-icons/tb";
 import { Link, NavLink, Outlet } from "react-router";
@@ -116,6 +117,18 @@ const DashboardLayout = () => {
                       <FaTasks />
                       <span className="is-drawer-close:hidden">
                         Assigned Deliveries
+                      </span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/dashboard/completed-deliveries"
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Completed Deliveries"
+                    >
+                      <LuCircleCheckBig />
+                      <span className="is-drawer-close:hidden">
+                        Completed Deliveries
                       </span>
                     </NavLink>
                   </li>
