@@ -18,6 +18,14 @@ const CompletedDeliveries = () => {
     },
   });
 
+  const calculatePayout = (parcel) => {
+    if (parcel.senderDistrict === parcel.receiverDistrict) {
+      return parcel.cost * 0.8;
+    } else {
+      return parcel.cost * 0.6;
+    }
+  };
+
   return (
     <div>
       <h2 className="lg:text-5xl text-center lg:py-6 text-xl text-teal-800 font-bold">
@@ -33,11 +41,12 @@ const CompletedDeliveries = () => {
             <tr>
               <th></th>
               <th className="text-center  text-xl font-bold">Name</th>
-              <th className="text-center  text-xl font-bold">Cost</th>
               <th className="text-center  text-xl font-bold">Created At</th>
               <th className="text-center  text-xl font-bold">
                 Pickup District
               </th>
+              <th className="text-center  text-xl font-bold">Cost</th>
+              <th className="text-center  text-xl font-bold">Payout</th>
               <th className="text-center  text-xl font-bold">Action</th>
             </tr>
           </thead>
@@ -46,12 +55,13 @@ const CompletedDeliveries = () => {
               <tr key={parcel._id}>
                 <th>{index + 1}</th>
                 <td className="text-center">{parcel.parcelName}</td>
-                <td className="text-center">{parcel.cost}</td>
                 <td className="text-center">{parcel.createdAt}</td>
                 <td className="text-center">{parcel.senderDistrict}</td>
+                <td className="text-center">{parcel.cost}</td>
+                <td className="text-center">{calculatePayout(parcel)}</td>
                 <td className="text-center">
                   <button className="btn btn-primary text-black">
-                    Find Riders
+                    Cash Out
                   </button>
                 </td>
               </tr>
