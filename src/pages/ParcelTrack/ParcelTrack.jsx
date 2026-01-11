@@ -1,8 +1,15 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useParams } from "react-router";
 
 const ParcelTrack = () => {
   const { trackingId } = useParams();
+
+  const {} = useQuery({
+    queryKey: ["tracking", trackingId],
+    queryFn:
+  });
+
   return (
     <div className="p-8">
       <h2 className="lg:text-5xl text-center lg:py-6 text-xl text-teal-800 font-bold">
