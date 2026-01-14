@@ -6,6 +6,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { Link, NavLink, Outlet } from "react-router";
 import useRole from "../hooks/useRole";
 import { MdOutlineElectricCar } from "react-icons/md";
+import Logo from "../components/Logo/Logo";
 
 const DashboardLayout = () => {
   const { role } = useRole();
@@ -54,6 +55,11 @@ const DashboardLayout = () => {
             {/* Sidebar content here */}
             <ul className="menu space-y-3 lg:space-y-7 w-full grow">
               {/* List item */}
+
+              <li>
+                <Logo></Logo>
+              </li>
+
               <li>
                 <Link
                   to="/"
