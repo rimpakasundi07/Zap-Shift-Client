@@ -6,7 +6,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { Link, NavLink, Outlet } from "react-router";
 import useRole from "../hooks/useRole";
 import { MdOutlineElectricCar } from "react-icons/md";
-import Logo from "../components/Logo/Logo";
+import Logo from "../assets/logo.png";
 
 const DashboardLayout = () => {
   const { role } = useRole();
@@ -57,12 +57,14 @@ const DashboardLayout = () => {
               {/* List item */}
 
               <li>
-                <Logo></Logo>
+                <Link to="/">
+                  <img src={Logo} alt="" />
+                </Link>
               </li>
 
               <li>
                 <Link
-                  to="/"
+                  to="/dashboard"
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                   data-tip="Homepage"
                 >
