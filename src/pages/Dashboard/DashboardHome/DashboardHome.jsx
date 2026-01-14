@@ -2,6 +2,8 @@ import React from "react";
 import useRole from "../../../hooks/useRole";
 import Loading from "../../../components/Loding/Loading";
 import AdminDashboardHome from "./AdminDashboardHome";
+import RiderDashboardHome from "./RiderDashboardHome";
+import UserDashboardHome from "./UserDashboardHome";
 
 const DashboardHome = () => {
   const { role, roleLoading } = useRole();
@@ -10,15 +12,11 @@ const DashboardHome = () => {
   }
   if (role === "admin") {
     return <AdminDashboardHome></AdminDashboardHome>;
+  } else if (role === "rider") {
+    return <RiderDashboardHome></RiderDashboardHome>;
+  } else {
+    return <UserDashboardHome></UserDashboardHome>;
   }
-
-  return (
-    <div>
-      <h2 className="text-teal-800 py-2 lg:p-6 font-bold lg:text-4xl text-xl">
-        Dashboard Home
-      </h2>
-    </div>
-  );
 };
 
 export default DashboardHome;
